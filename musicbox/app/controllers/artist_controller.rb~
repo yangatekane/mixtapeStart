@@ -1,0 +1,13 @@
+class ArtistController < ApplicationController
+	def index
+		@title = "Artists"
+	        @user = Artist.all	
+	end
+	def show
+		@user = Artist.find(params[:id])
+		@title = @user.name
+	end
+	def update
+
+	end
+end
