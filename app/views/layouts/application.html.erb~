@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>title</title>
+   <%= csrf_meta_tag %>
+   <%=render 'layouts/stylesheet'%>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+<p>
+<%=link_to "#{@artists.find(1).name}", show_path%>
+</p>
