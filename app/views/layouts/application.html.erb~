@@ -32,13 +32,13 @@
 
    <footer>
      <div class="container">
-	     <nav>
-    <ul>
+	   
+    <ul id="menu">
 	    <li><%=link_to "About",about_path%></li>
 	    <li><%=link_to "Contact",contact_path%></li>
 
     </ul>
-    </nav>
+
 
     </div>
     </footer>
