@@ -7,6 +7,16 @@ gem 'rails', '3.0.6'
 
 gem 'sqlite3'
 
+gem 'will_paginate', '3.0.pre2'
+
+
+
+group :development do
+ gem 'rspec-rails', '2.0.0'
+ gem 'annotate-models', '1.0.4'
+ gem 'faker', '0.3.1'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

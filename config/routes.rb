@@ -1,4 +1,7 @@
 Musicbox::Application.routes.draw do
+
+ resources :artists
+
   get "pages/home"
 
   get "pages/about"
