@@ -1,0 +1,26 @@
+<h1><%= title %></h1>
+
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="field">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</div>
+
+	<div class="checkbox">
+		<%= f.label 'Remember me' %>
+	</div>
+
+	<p> If you're not a member, please <%= link_to "register here", signup_path %>
+	</p>
+
+	<div class="actions">
+		<%= f.submit "Login" %>
+		<%= link_to "Forgot Password?", '#' %>
+	</div>
+<% end %>
