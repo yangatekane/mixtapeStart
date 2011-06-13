@@ -1,15 +1,19 @@
 Musicbox::Application.routes.draw do
+
+ resources :artists
+ resources :sessions, :only =>[:new,:creat,:destroy]
+
+  get "pages/home"
+
+  get "pages/about"
+
+
+  match '/about', :to=> 'pages#about'
+  match '/contact',:to=> 'pages#contact'
   # The priority is based upon order of creation:
   # first created -> highest priority.
- 	
-resources :artist
-resources :sessions, :only => [:new, :create, :destroy]
 
-match '/artists',	:to => 'artist#new'
-match '/index', 	:to => 'artist#index'
-match '/show',  	:to => 'artist#show'
-match '/signin',	:to => 'sessions#new'
-# Sample of regular route:
+  # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
@@ -55,7 +59,7 @@ match '/signin',	:to => 'sessions#new'
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+   root :to => "pages#home"
 
   # See how all your routes lay out with "rake routes"
 

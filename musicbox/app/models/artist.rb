@@ -1,6 +1,10 @@
 class Artist < ActiveRecord::Base
-	attr_accessor :password
+	attr_accessor :password, :rating
 	attr_accessible :name, :genre, :record_label, :artist_type, :website, :rating, :email, :password, :password_confirmation, :validation
+
+	has_attached_file :avatar,
+			  :styles=>{:medium=>"300x300>",
+				    :thumb=>"100x100>"}
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

@@ -1,4 +1,0 @@
-<ul>
-	<%= link_to "Register", signup_path %>
-	<%= link_to "Login", signin_path %>
-</ul>

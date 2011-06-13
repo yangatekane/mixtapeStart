@@ -16,7 +16,7 @@
 		<%= f.label 'Remember me' %>
 	</div>
 
-	<p> If you're not a member, please <%= link_to "register here", signup_path %>
+	<p> If you're not a member, please <%= link_to "register here", artists_path %>
 	</p>
 
 	<div class="actions">
