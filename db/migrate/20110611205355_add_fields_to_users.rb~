@@ -1,0 +1,21 @@
+class AddFieldsToUsers < ActiveRecord::Migration
+  def self.up
+    add_column :users, :name, :string
+    add_column :users, :email, :string
+    add_column :users, :genre, :string
+    add_column :users, :category, :string
+    add_column :users, :record_label, :string
+    add_column :users, :artist_type, :string
+    add_column :users, :website, :string
+  end
+
+  def self.down
+    remove_column :users, :website
+    remove_column :users, :artist_type
+    remove_column :users, :record_label
+    remove_column :users, :category
+    remove_column :users, :genre
+    remove_column :users, :email
+    remove_column :users, :name
+  end
+end
