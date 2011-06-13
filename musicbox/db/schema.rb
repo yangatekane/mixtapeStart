@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607200146) do
+ActiveRecord::Schema.define(:version => 20110612202642) do
 
   create_table "artists", :force => true do |t|
     t.datetime "created_at"
@@ -25,5 +25,7 @@ ActiveRecord::Schema.define(:version => 20110607200146) do
     t.string   "encrypted_password"
     t.string   "salt"
   end
+
+  add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true
 
 end

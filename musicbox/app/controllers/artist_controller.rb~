@@ -1,11 +1,29 @@
 class ArtistController < ApplicationController
 	def index
 		@title = "Artists"
-	        @user = Artist.all	
+	        @artists = Artist.all	
 	end
+
 	def show
-		@user = Artist.find(params[:id])
-		@title = @user.name
+		@artist = Artist.find(params[:id])
+		@title = @artist.name
+	end
+
+	def new
+		@artist =Artist.new
+		#@artist = Artist.all
+		@title = "Register"
+	end
+	
+	def create
+		@artist = Artist.new(params[:artist])
+		if @artist.save
+			flash[:success] = "Welcome to Music Box"
+			redirect_to @artist
+		else
+			@title = "Register"
+			render 'new'
+		end
 	end
 	def update
 
