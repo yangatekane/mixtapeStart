@@ -1,2 +1,24 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+<%= form_for(@artist) do |f| %>
+	<div class="field">
+		<%= f.label 'Email:' %><br />
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="field">
+		<%= f.label 'Password:' %><br />
+		<%= f.password_field :password %>
+	</div>
+
+	<div class="field">
+		<%= f.label 'Re-type Password:' %><br />
+		<%= f.password_field :password_confirmation %>
+	</div>
+
+	<div class="field">
+		<%= f.label 'Validation Code:' %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>

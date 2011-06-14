@@ -8,15 +8,22 @@
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
 		<div class="container"><!--BEGIN CONTAINER-->
-  <header>
-  <nav>
-  <ul>
+			<header>
+   
+			<ul id="left_nav">
+				<li><%=link_to "Register",signup_path%></li>
+				<li><%=link_to "Login",sessions_path%></li>
+			
+ 			</ul>
+			
+			<nav>
+ 		 <ul>
 	  <li><%=link_to "Home", root_path%></li>
 	  <li><%=link_to "Top 100",'#'%></li>
 	  <li><%=link_to "Mixtapes",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
 	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",'#'%></li>
+	  <li><%=link_to "Artists",artists_path%></li>
    </ul>
    </nav>
    </header>

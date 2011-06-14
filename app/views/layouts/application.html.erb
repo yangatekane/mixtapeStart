@@ -8,9 +8,16 @@
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
 		<div class="container"><!--BEGIN CONTAINER-->
-  <header>
-  <nav>
-  <ul>
+			<header>
+   
+			<ul id="left_nav">
+				<li><%=link_to "Register",signup_path%></li>
+				<li><%=link_to "Login",signin_path%></li>
+			
+ 			</ul>
+			
+			<nav>
+ 		 <ul>
 	  <li><%=link_to "Home", root_path%></li>
 	  <li><%=link_to "Top 100",'#'%></li>
 	  <li><%=link_to "Mixtapes",'#'%></li>
