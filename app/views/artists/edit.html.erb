@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+
+<%=form_for @artist ,:html=>{:multipart=>true} do |f|%>
+
+	<%=f.file_field :avatar %>
+	<%=f.submit "Upload" %>
+
+<%end%>
+
+
