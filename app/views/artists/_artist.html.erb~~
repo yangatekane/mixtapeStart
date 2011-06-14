@@ -1,0 +1,5 @@
+<li>
+
+
+<%=image_tag artist.avatar.url%>|<%= #link_to artist.name, '#' %>
+</li>
