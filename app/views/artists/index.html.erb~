@@ -2,7 +2,7 @@
 
 <%=will_paginate %>
 <ul class ="artists">
-	<%=@artists.each do |artist| %>
+	<%@artists.each do |artist| %>
 		<%=render artist %>
 	<%end%>
 </ul>
