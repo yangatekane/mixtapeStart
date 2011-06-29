@@ -9,6 +9,8 @@ class ArtistsController < ApplicationController
 
 
  def new
+	 @artist = Artist.new
+	 @title = "Register"
  end
 
  def show
@@ -17,6 +19,14 @@ class ArtistsController < ApplicationController
  end
 
   def create
+	  @artist = Artist.new(params[:artist])
+	  if @artist.save
+		  flash[:success]="Welcome to Music Box"
+		  redirect_to 'index'
+	  else
+		  @title="Register"
+		  render 'new'
+	  end
   end
 
   def edit

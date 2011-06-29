@@ -22,7 +22,7 @@ class ArtistsController < ApplicationController
 	  @artist = Artist.new(params[:artist])
 	  if @artist.save
 		  flash[:success]="Welcome to Music Box"
-		  redirect_to 'index'
+		  redirect_to @artist
 	  else
 		  @title="Register"
 		  render 'new'
