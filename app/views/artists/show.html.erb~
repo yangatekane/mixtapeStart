@@ -1,1 +1,1 @@
-<%=image_tag @artist.avatar.url %> <%=@artist.name%>
+<%=image_tag @artist.avatar.url(:medium) %> <%=@artist.name%>
