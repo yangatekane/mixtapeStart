@@ -1,0 +1,16 @@
+class HomeController < ApplicationController
+  
+  def index
+    @title = "Home"
+    @artists = Artist.paginate(:page => params[:page])
+    @micropost = current_artist.microposts.build(params[:micropost])
+  end
+
+  def about
+     @title = "About"
+  end
+  def contact
+  @title = "Contact"
+  end
+
+end

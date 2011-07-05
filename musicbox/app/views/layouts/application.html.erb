@@ -8,15 +8,25 @@
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
 		<div class="container"><!--BEGIN CONTAINER-->
-  <header>
-  <nav>
-  <ul>
+			<header>
+   
+			<ul id="left_nav">
+				<% if artist_signed_in? %>
+					Signed in as <%= current_artist.email %>. Not you?
+					<%= link_to "Sign out", destroy_artist_session_path %>
+				<% else %>
+					<%= link_to "Register", new_artist_registration_path %> or <%= link_to "Login", new_artist_session_path %>
+				<% end %>
+ 			</ul>
+			
+			<nav>
+ 		 <ul>
 	  <li><%=link_to "Home", root_path%></li>
 	  <li><%=link_to "Top 100",'#'%></li>
 	  <li><%=link_to "Mixtapes",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
 	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",artists_path%></li>
+	  <li><%=link_to "Artists",micropost_path%></li>
    </ul>
    </nav>
    </header>
@@ -44,3 +54,4 @@
     </footer>
 </body>
 </html>
+

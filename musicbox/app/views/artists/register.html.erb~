@@ -1,0 +1,2 @@
+<h1><%= @title %></h1>
+<p>Follow your email address to comfirm your registration</p>

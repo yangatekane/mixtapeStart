@@ -1,4 +1,0 @@
-<li>
-
- <%=image_tag artist.avatar.url(:medium)%> |<%=link_to artist.name, '#' %>
-</li>
