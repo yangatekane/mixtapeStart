@@ -7,7 +7,10 @@ Musicbox::Application.routes.draw do
 
   get "pages/about"
 
+  match 'editthem' ,:to =>'artist#edit'
+
   match '/signup', :to => 'artists#new'
+  match '/signin', :to => 'sessions#new'
 
   match '/about', :to=> 'pages#about'
   match '/contact',:to=> 'pages#contact'

@@ -4,7 +4,7 @@
 <%=form_for(@artist,:html =>{:multipart => true}) do |f| %>
 	<p>
 	<%= f.label  "Picture" %>
-	<%=f.file_field :photo_file %>
+	<%=f.file_field :uploaded_data%>
 
 	</p>
 	<p>

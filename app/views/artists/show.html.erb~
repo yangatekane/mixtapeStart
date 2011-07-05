@@ -1,1 +1,3 @@
 <%=@artist.email%> ,<%=@artist.name %>
+
+
