@@ -3,7 +3,7 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.integer :artist_id,:parent_id, :size, :width, :height
 
-      t.string  :content_type, :file_name, :thumbail
+      t.string  :content_type, :thumbnail, :filename
       
       t.timestamps
     end

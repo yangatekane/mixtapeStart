@@ -1,14 +1,14 @@
 <h1>Profile</h1>
 
 
-<%=form_for(@artist,:html =>{:multipart => true}) do |f| %>
+<%=form_tag({:controller =>:artists,:action =>:update},:method =>"put",:multipart => true) do %>
 	<p>
-	<%= f.label  "Picture" %>
-	<%=f.file_field :photo_file%>
-
+	<%= label_tag  "Picture" %>
+	<%=file_field :uploaded_data  %>
+         <%=text_field_tag :name %>
 	</p>
 	<p>
-	<%=f.submit "Upload" %>
+	<%=submit_tag "Upload" %>
 
 	</p>
 

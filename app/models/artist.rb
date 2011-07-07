@@ -51,7 +51,7 @@ class Artist < ActiveRecord::Base
 	#
 	#
 
-	has_one :photo ,:dependent => :destroy,:autosave=>:true #has one image for now 
+	has_one :photo ,:dependent => :destroy #has one image for now 
 	attr_accessor  :password
 	attr_accessible :name,:email,:password,:password_confirmation
 
@@ -68,6 +68,7 @@ class Artist < ActiveRecord::Base
 			    :length=>{:within=> 6..40}
 
       before_save :encrypt_password
+     
 
       def has_password?(submitted_password)
 	      #compare encrypted_password with the encrypted version of the

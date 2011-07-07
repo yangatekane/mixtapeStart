@@ -1,7 +1,14 @@
 Musicbox::Application.routes.draw do
 
+  resources :videos
+
  resources :artists
  resources :sessions, :only =>[:new,:create,:destroy]
+
+
+  
+  
+
 
   get "pages/home"
 

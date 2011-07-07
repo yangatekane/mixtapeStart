@@ -40,9 +40,11 @@ class ArtistsController < ApplicationController
 
   def update
 	  @artist = Artist.find(params[:id])
-	  @photo = @artist.build_photo(:uploaded_data =>params[:photo_file])
+	  @photo = @artist.build_photo(params[:attachable])
+
+
 	  
-	  if @artist.update_attributes(params[:artist])  && @photo.save
+	  if @artist.update_attribute(:name,params[:name]) && @photo.save
 		  redirect_to @artist
 	  else
 		  @title = "Edit User"

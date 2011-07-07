@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629082923) do
+ActiveRecord::Schema.define(:version => 20110707163907) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(:version => 20110629082923) do
     t.integer  "width"
     t.integer  "height"
     t.string   "content_type"
-    t.string   "file_name"
-    t.string   "thumbail"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "thumbnail"
+    t.string   "filename"
   end
 
 end
