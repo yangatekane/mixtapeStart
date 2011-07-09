@@ -7,7 +7,8 @@ class Artist < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :genre, :record_label, :artist_type, :website, :login
   attr_accessor :rating, :login
-
+	
+  has_one :photo, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
 
   #def feed

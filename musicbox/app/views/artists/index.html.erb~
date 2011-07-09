@@ -1,5 +1,0 @@
-<h1>Featured Artists</h1>
-<ul class="artists">
-		<%= will_paginate @artists %>
-		<%= page_entries_info @artists %>
-</ul>

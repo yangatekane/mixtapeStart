@@ -12,10 +12,10 @@
    
 			<ul id="left_nav">
 				<% if artist_signed_in? %>
-					Signed in as <%= current_artist.email %>. Not you?
-					<%= link_to "Sign out", destroy_artist_session_path %>
+					<li>Signed in as <%= current_artist.username %> <%= link_to "Sign out", destroy_artist_session_path %></li>
 				<% else %>
-					<%= link_to "Register", new_artist_registration_path %> or <%= link_to "Login", new_artist_session_path %>
+					<li><%= link_to "Register", new_artist_registration_path %></li>
+					<li><%= link_to "Login", new_artist_session_path %></li>
 				<% end %>
  			</ul>
 			
@@ -26,7 +26,7 @@
 	  <li><%=link_to "Mixtapes",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
 	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",profiles_path%></li>
+	  <li><%=link_to "Artists",featured_path%></li>
    </ul>
    </nav>
    </header>

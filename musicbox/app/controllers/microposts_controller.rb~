@@ -23,7 +23,7 @@ class MicropostsController < ApplicationController
 	end
 	
 	def show
-		@micropost = find(params[:id])
+		@micropost = Micropost.find(params[:id])
 	end
 	def destroy
 	end

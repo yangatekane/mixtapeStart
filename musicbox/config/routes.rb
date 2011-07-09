@@ -1,19 +1,32 @@
 Musicbox::Application.routes.draw do
-	devise_for :artists
-	devise_for :artists, :controllers => {:registrations => "registrations" }
-	
-	namespace :artist do
-	 	root :to => "artists#register"
- 	end
 
-	resource  :artists, :only => [ :index, :show, :edit, :destroy ]
-	match "profiles" => "artists#index"
-  	match '/about', :to=> 'home#about'
-  	match '/contact',:to=> 'home#contact'
+  devise_for :artists
+  devise_for :artists, :controllers =>{:registrations => "registrations"}
 
-	resource :microposts 
-		
-	
+  namespace :artist do 
+	  root :to => "artists#register"
+	  end
+
+
+
+ resources :artists, :only =>[:index,:show, :edit, :destroy, :update]
+ match '/featured' ,:to =>'artists#index'
+ match '/about', :to => 'home#about'
+ match '/contact', :to =>'home#contact'
+
+ resource :microposts
+  
+  
+
+
+  get "pages/home"
+
+  get "pages/about"
+
+
+ 
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -64,7 +77,7 @@ Musicbox::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => "home#index"
-   
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -23,7 +23,10 @@ class MicropostsController < ApplicationController
 	end
 	
 	def show
-		@micropost = Micropost.find(params[:id])
+		@artist = Artist.find(params[:id])
+	 	@microposts = @artist.microposts.paginate(:page => params[:page])
+	 	@title = @artist.name
+		#@micropost = Micropost.find(params[:id])
 	end
 	def destroy
 	end
