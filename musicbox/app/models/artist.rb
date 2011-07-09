@@ -10,6 +10,10 @@ class Artist < ActiveRecord::Base
 
   has_many :microposts, :dependent => :destroy
 
+  #def feed
+	#	Micropost.where("user_id=?", id)
+  #end
+
   protected
   def self.find_for_database_authentication(warden_conditions)
 	conditions = warden_conditions.dup

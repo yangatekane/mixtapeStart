@@ -2,8 +2,9 @@ class HomeController < ApplicationController
   
   def index
     @title = "Home"
-    @artists = Artist.paginate(:page => params[:page])
-    @micropost = current_artist.microposts.build(params[:micropost])
+    if artist_signed_in?
+	@micropost = Micropost.new
+    end
   end
 
   def about

@@ -1,11 +1,5 @@
 <h1><%= @title %></h1>
 <% if artist_signed_in? %>
-	<table class="front" summary="For signed-in artists">
-		<tr>
-			<td class="main">
-				<h1 class="micropost">Comments</h1>
-				<%= render 'shared/micropost_form' %>
-			</td>
-		</tr>
-	</table>
+	<h2><%= @title1 %></h2>
+	<p><%= link_to 'Add a comment', new_microposts_path %></p>
 <% end %>

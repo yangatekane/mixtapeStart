@@ -6,14 +6,14 @@ Musicbox::Application.routes.draw do
 	 	root :to => "artists#register"
  	end
 
-	resource  :artists, :only => [ :show, :edit ]
-
+	resource  :artists, :only => [ :index, :show, :edit ]
+	match "profiles" => "artists#index"
   	match '/about', :to=> 'home#about'
   	match '/contact',:to=> 'home#contact'
 
-	resource :microposts, :only => [ :create, :destroy ]
+	resource :microposts 
+		
 	
-	match '/micropost', :to => "artists#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
 		#@artist = find(params[:id]
 		@micropost = current_artist.microposts.build(params[:micropost])
 
-		if @micropost.save
+		if @micropost.save!
 			redirect_to microposts_path, :notice => 'Thank you for your comment!'
 			#flash[:success] = "Comment created!"
 			#redirect_to root_path

@@ -26,7 +26,7 @@
 	  <li><%=link_to "Mixtapes",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
 	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",artistp_path%></li>
+	  <li><%=link_to "Artists",profile_path%></li>
    </ul>
    </nav>
    </header>

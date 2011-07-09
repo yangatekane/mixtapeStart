@@ -142,10 +142,10 @@ form.new_micropost {
 	margin-bottom: 2em;
 }
 form.new_micropost textarea {
-	height: 4em;
+	height: 2em;
 	margin-bottom: 0;
 }
 
  #micropost_submit{
-	height:15px;
+	height:10px;
 }

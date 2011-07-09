@@ -1,7 +1,13 @@
 class ArtistsController < ApplicationController
   before_filter :authenticate_artist!
 
-  def show
+  def index
+	@title = "Featured Artists"
+	@artist = Artist.all
+	@artists = @artist.paginate(:page => params[:page])	
+  end
+
+  def show 
 	 @artist = Artist.find(params[:id])
 	 @microposts = @artist.microposts.paginate(:page => params[:page])
 	 @title = @artist.name
@@ -10,5 +16,5 @@ class ArtistsController < ApplicationController
   def register
 	@title = "Register"	
   end
-
+  
 end
