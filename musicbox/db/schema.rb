@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703193144) do
+ActiveRecord::Schema.define(:version => 20110709184823) do
 
   create_table "artists", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -37,11 +37,9 @@ ActiveRecord::Schema.define(:version => 20110703193144) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
-
-  add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
 
 end

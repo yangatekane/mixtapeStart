@@ -1,16 +1,16 @@
 class MicropostsController < ApplicationController
-	before_filter :authenticate_artist!, :only => [:create, :destroy ]
+	before_filter :authenticate_artist!
 	
 	def new
 		@title = "Comment"
-		@micropost = Micropost.new
+		#@micropost = current_artist.microposts.create()
 		#@feed_items = current_artist.feed.paginate(:page => params[:page])
+		@micropost = Micropost.new
 	end
 
 	def create
 		@title = "Comment"
-		#@artist = find(params[:id]
-		@micropost = current_artist.microposts.build(params[:micropost])
+		@micropost = current_artist.microposts.create(params[:micropost])
 
 		if @micropost.save
 			redirect_to microposts_path, :notice => 'Thank you for your comment!'
@@ -21,7 +21,10 @@ class MicropostsController < ApplicationController
 			render :new
 		end
 	end
-
+	
+	def show
+		@micropost = Micropost.find(params[:id])
+	end
 	def destroy
 	end
 end

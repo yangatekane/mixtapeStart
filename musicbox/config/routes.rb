@@ -6,7 +6,7 @@ Musicbox::Application.routes.draw do
 	 	root :to => "artists#register"
  	end
 
-	resource  :artists, :only => [ :index, :show, :edit ]
+	resource  :artists, :only => [ :index, :show, :edit, :destroy ]
 	match "profiles" => "artists#index"
   	match '/about', :to=> 'home#about'
   	match '/contact',:to=> 'home#contact'
