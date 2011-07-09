@@ -16,13 +16,14 @@ class ArtistsController < ApplicationController
  def show
 	 @artist = Artist.find(params[:id])
 	 @title = @artist.name
+	 #@photo = @artist.photo
  end
 
   def create
 	  @artist = Artist.new(params[:artist])
 	  if @artist.save
 		  flash[:success]="Welcome to Music Box"
-		  redirect_to 'index'
+		  redirect_to @artist
 	  else
 		  @title="Register"
 		  render 'new'
@@ -32,14 +33,18 @@ class ArtistsController < ApplicationController
   def edit
 	  @artist = Artist.find(params[:id])
 	  @title = "Edit User"
-
+          
 
 
   end
 
   def update
 	  @artist = Artist.find(params[:id])
-	  if @artist.update_attributes(params[:artist])
+	  @photo = @artist.build_photo(params[:attachable])
+
+
+	  
+	  if @artist.update_attribute(:name,params[:name]) && @photo.save
 		  redirect_to @artist
 	  else
 		  @title = "Edit User"

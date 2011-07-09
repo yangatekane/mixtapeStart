@@ -1,11 +1,20 @@
 Musicbox::Application.routes.draw do
 
+  resources :videos
+
  resources :artists
  resources :sessions, :only =>[:new,:create,:destroy]
+
+
+  
+  
+
 
   get "pages/home"
 
   get "pages/about"
+
+  match 'editthem' ,:to =>'artists#edit'
 
   match '/signup', :to => 'artists#new'
   match '/signin', :to => 'sessions#new'

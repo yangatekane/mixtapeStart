@@ -6,4 +6,11 @@
 		<%=render artist %>
 	<%end%>
 </ul>
+<<<<<<< HEAD
 <%=will_paginate %>
+
+
+
+=======
+<%=will_paginate  %>
+>>>>>>> photos
