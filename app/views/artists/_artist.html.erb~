@@ -1,5 +1,5 @@
 <li>
 
-<%=image_tag(picture(artist))%>|<%=artist.name %> 
+<%=image_tag('/photos/noimage.png') if artist.photo.nil?%>|<%=artist.name %> 
 </li>
-
+ 

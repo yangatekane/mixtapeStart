@@ -9,8 +9,8 @@ has_attachment :content_type => :image,
 	 		:large =>'96x96>',
 			:medium =>'64x64>',
 			:small => '48x48>'
-			},
-		:processor =>"Rmagick"
+			}
+	
 validates_as_attachment
 
 end
