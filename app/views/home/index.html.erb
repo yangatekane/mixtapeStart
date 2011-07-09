@@ -1,0 +1,5 @@
+<h1><%= @title %></h1>
+<% if artist_signed_in? %>
+	<h2><%= @title1 %></h2>
+	<p><%= link_to 'Add a comment', new_microposts_path %></p>
+<% end %>

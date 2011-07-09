@@ -1,11 +1,4 @@
-
-<<<<<<< HEAD
 <li>
-<%=artist.name%>
-</li>
-
-=======
 <%=image_tag(picture(artist))%>|<%=artist.name %> 
 </li>
- 
->>>>>>> photos
+

@@ -1,16 +1,8 @@
 <h1>Featured Artists</h1>
-
 <%=will_paginate %>
 <ul class ="artists">
 	<%@artists.each do |artist| %>
 		<%=render artist %>
 	<%end%>
 </ul>
-<<<<<<< HEAD
-<%=will_paginate %>
-
-
-
-=======
-<%=will_paginate  %>
->>>>>>> photos
+<%=wil_paginate %>

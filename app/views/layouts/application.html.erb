@@ -11,9 +11,15 @@
 			<header>
    
 			<ul id="left_nav">
-				<li><%=link_to "Register",signup_path%></li>
-				<li><%=link_to "Login",signin_path%></li>
-			
+				<%if artist_signed_in? %>
+                         
+		            <li>Signed in as <%=current_artist.username %> <%=link_to "Sign out",destroy_artist_session_path %></li>
+
+                  <%else%>
+
+				<li><%=link_to "Register",new_artist_registration_path%></li>
+				<li><%=link_to "Login",new_artist_session_path%></li>
+			<%end%>
  			</ul>
 			
 			<nav>
@@ -23,7 +29,7 @@
 	  <li><%=link_to "Mixtapes",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
 	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",artists_path%></li>
+	  <li><%=link_to "Artists",featured_path%></li>
    </ul>
    </nav>
    </header>

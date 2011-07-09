@@ -10,24 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707215454) do
+ActiveRecord::Schema.define(:version => 20110709204856) do
 
   create_table "artists", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "genre"
-    t.string   "category"
-    t.string   "record_label"
-    t.string   "artist_type"
-    t.string   "website"
-    t.string   "rating"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password"
-    t.string   "salt"
+    t.string   "genre"
+    t.string   "record_label"
+    t.string   "website"
+    t.string   "artist_type"
+    t.string   "username"
   end
 
   add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true
+  add_index "artists", ["reset_password_token"], :name => "index_artists_on_reset_password_token", :unique => true
 
   create_table "images", :force => true do |t|
     t.integer  "artist_id"
@@ -38,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20110707215454) do
     t.string   "content_type"
     t.string   "filename"
     t.string   "thumbnail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "microposts", :force => true do |t|
+    t.integer  "artist_id"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

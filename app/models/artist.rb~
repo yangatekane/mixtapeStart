@@ -68,6 +68,7 @@ class Artist < ActiveRecord::Base
 			    :length=>{:within=> 6..40}
 
       before_save :encrypt_password
+     
 
       def has_password?(submitted_password)
 	      #compare encrypted_password with the encrypted version of the
