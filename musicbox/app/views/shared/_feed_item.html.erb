@@ -1,0 +1,9 @@
+<td>
+	<li class="photo">
+		<%=image_tag(picture(current_artist))%>|<%=current_artist.username %> 
+	</li>
+	<li>
+		<span class="content"><%= feed_item.content %></span>
+		<span class="timestamp">posted <%= time_ago_in_words(feed_item.created_at) %> ago. </span>
+		</li>
+</td>

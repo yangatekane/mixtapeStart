@@ -11,9 +11,9 @@ class Artist < ActiveRecord::Base
   has_one :photo, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
 
-  #def feed
-	#	Micropost.where("user_id=?", id)
-  #end
+  def feed
+	Micropost.where("artist_id=?", id)
+  end
 
   protected
   def self.find_for_database_authentication(warden_conditions)
