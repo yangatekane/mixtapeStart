@@ -1,4 +1,10 @@
 
-<%=@artist.email%> ,<%=@artist.username %>
+
+<div id ="profile-picture">
+	<%=image_tag(picture(@artist))%>
+	
+</div>
+<div id ="bio">
+<h2><%=@artist.username %></h2>
 <%=link_to 'Edit Profile',edit_artist_path(@artist) %>
-<%=image_tag(picture(@artist))%>
+</div>

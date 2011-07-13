@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
  def show
 	 @artist = Artist.find(params[:id])
 	 @title = @artist.username
-	 #@photo = @artist.photo
+	 
  end
 
  
@@ -28,11 +28,20 @@ class ArtistsController < ApplicationController
 
   def update
 	  @artist = Artist.find(params[:id])
+
+	  unless params[:attachable].blank?
 	  @photo = @artist.build_photo(params[:attachable])
 
+	  if @photo.new_record?
+		  @artist.photo.destroy if @artist.photo
+	  end
+	  @photo.save!
+	  #what if there was a problem saving the image
+          end
 
 	  
-	  if @artist.update_attribute(:name,params[:name]) && @photo.save
+	  if @artist.update_attributes(params[:artist])
+		  flash[:success] ='Succesfully updated your profile'
 		  redirect_to @artist
 	  else
 		  @title = "Edit User"

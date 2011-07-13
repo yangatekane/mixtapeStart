@@ -1,4 +1,10 @@
 <li>
-<%=image_tag(picture(artist))%>|<%=artist.name %> 
+<div class= "clipwrapper">
+	<div class="clip">
+		<%=image_tag(picture(artist))%>|<%=artist.username %>
+	</div>
+
+	<div class= "clipwrapper">
+	
 </li>
 

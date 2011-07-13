@@ -105,8 +105,18 @@ footer ul li{
 	text-transform:uppercase;
 }
 
-#left_nav li a.active,a:hover{
+#left_nav li a.active,#left_nav a:hover{
 	color:#FFF;
 	text-decoration:underline;
+}
+
+img.artists{
+	width:50;
+	height:auto;
+}
+
+img.artists {
+	height:auto;
+	widht:50;
 }
 

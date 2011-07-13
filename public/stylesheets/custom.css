@@ -110,3 +110,13 @@ footer ul li{
 	text-decoration:underline;
 }
 
+.clipwrapper{
+	position: relative;
+	height: 225px;
+}
+
+
+.clip{
+	position:absolute;
+	clip:rect(50px 218px 155px 82px);
+}

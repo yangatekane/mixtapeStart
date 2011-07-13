@@ -5,4 +5,4 @@
 		<%=render artist %>
 	<%end%>
 </ul>
-<%=wil_paginate %>
+<%=will_paginate %>

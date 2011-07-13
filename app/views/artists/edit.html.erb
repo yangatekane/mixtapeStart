@@ -1,15 +1,43 @@
-<h1>Profile</h1>
+<h1> Edit Profile</h1>
 
 
-<%=form_tag({:controller =>:artists,:action =>:update},:method =>"put",:multipart => true) do %>
+
+<%=form_for(@artist,:html =>{:multipart => true}) do |f| %> 
+
 	<p>
-	<%= label_tag  "Picture" %>
-	<%=file_field :attachable, :uploaded_data  %>
-         <%=text_field_tag :username %>
-	</p>
-	<p>
-	<%=submit_tag "Upload" %>
+	<%=f.label :UserName %>
+	<%=f.text_field :username %>
 
+	<p>
+	<%=f.label "Artist type " %>
+	<%=f.select(:artist_type,[['Commercial',1],['Independent',2],['Unsigned',3]])%>
 	</p>
+
+
+	<p>
+	</p>
+	<%=f.label :website %>
+	<%=f.text_field :website %>
+	</p>
+
+	<p>
+	<%=f.label :Genre %>
+	<%=f.text_field :genre %>
+	</p>
+
+	
+	<p>
+	<%=f.label "Record Label" %>
+	<%=f.text_field :record_label%>
+	</p>
+
+
+	<%= label_tag :Picture %>
+	<%= file_field :attachable, :uploaded_data %>
+
+        <%=f.submit "Save" %>
+	</p>
+
+        
 
 <%end%>

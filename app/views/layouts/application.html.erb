@@ -13,7 +13,8 @@
 			<ul id="left_nav">
 				<%if artist_signed_in? %>
                          
-		            <li>Signed in as <%=current_artist.username %> <%=link_to "Sign out",destroy_artist_session_path %></li>
+					<li>Signed in as <%=current_artist.username %> <%=link_to "Sign out",destroy_artist_session_path %></li>
+					<li><%=link_to 'Profile',artist_path(current_artist) %></li>
 
                   <%else%>
 
