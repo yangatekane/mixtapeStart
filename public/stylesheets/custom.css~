@@ -17,13 +17,15 @@ section{
 body{
 	margin:0px;
 	padding:0px;
-	background-color:#000000;
+  /*	background-color:#000000;*/
+	background-color:#fffff;
 }
 
 
 
 #main{
 	background:#cccc99;
+
        background-image:url(images/header_slice.gif);
 	background-repeat:repeat-x;
 }
@@ -110,13 +112,16 @@ footer ul li{
 	text-decoration:underline;
 }
 
-img.artists{
-	width:50;
-	height:auto;
+.clipwrapper{
+	position: relative;
+	height: 225px;
 }
 
-img.artists {
-	height:auto;
-	widht:50;
+
+.clip{
+	position:absolute;
+	clip:rect(50px 218px 155px 82px);
 }
+
+
 

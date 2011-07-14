@@ -17,13 +17,15 @@ section{
 body{
 	margin:0px;
 	padding:0px;
-	background-color:#000000;
+  	background-color:#000000;
+
 }
 
 
 
 #main{
 	background:#cccc99;
+
        background-image:url(images/header_slice.gif);
 	background-repeat:repeat-x;
 }
@@ -120,3 +122,6 @@ footer ul li{
 	position:absolute;
 	clip:rect(50px 218px 155px 82px);
 }
+
+
+

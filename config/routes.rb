@@ -1,5 +1,7 @@
 Musicbox::Application.routes.draw do
 
+  resources :tracks
+
   devise_for :artists
   devise_for :artists, :controllers =>{:registrations => "registrations"}
 

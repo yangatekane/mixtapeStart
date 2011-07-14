@@ -5,6 +5,8 @@
 	
 </div>
 <div id ="bio">
-<h2><%=@artist.username %></h2>
+	<h2><%=@artist.username %></h2>
+	<% if artist_signed_in? %>
 <%=link_to 'Edit Profile',edit_artist_path(@artist) %>
+<%end%>
 </div>

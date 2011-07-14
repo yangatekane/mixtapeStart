@@ -11,7 +11,7 @@ module ApplicationHelper
 
    def picture(person)
    image_url ="/public/photos/0000/0001/noimage.png"
-   if person.photo.nil? || person.phot
+   if person.photo.nil?
 	   return image_url
    end
      return person.photo.public_filename()

@@ -17,6 +17,7 @@ class Artist < ActiveRecord::Base
 	
   has_one :photo, :dependent => :destroy
   has_many :microposts, :dependent => :destroy
+  has_many :tracks
 
   #def feed
 	#	Micropost.where("user_id=?", id)

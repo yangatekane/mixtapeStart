@@ -1,114 +1,68 @@
 class Artist < ActiveRecord::Base
-#	attr_accessor :password, :rating
-#	attr_accessible :name, :genre, :record_label, :artist_type, :website, :rating, :email, :password, :password_confirmation, :validation
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :genre, :record_label, :artist_type, :website, :login
+  attr_accessor :rating, :login
+	
+  has_one :photo, :dependent => :destroy
+  has_many :microposts, :dependent => :destroy
 
-#	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  #def feed
+	#	Micropost.where("user_id=?", id)
+  #end
 
- #	validates :name,  	:presence 	=> true,
-#			  	:length   	=> { :maximum => 50 }
-#	validates :email, 	:presence 	=> true,
-#			  	:format   	=> { :with => email_regex },
-#	       		  	:uniqueness	=> { :case_sensitive => false }
-	# Automatically create the virtual attribute 'password_confirmation'
-#	validates :password,	:presence	=> true,
-#				:confirmation	=> true,
-#				:length		=> { :within => 6..40 }
-	#before_save :encypt_password
+  protected
+  def self.find_for_database_authentication(warden_conditions)
+	conditions = warden_conditions.dup
+	login = conditions.delete(:login)
+	where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+  end
 
-	# Return true if the user's password matches the submitted password.
-	#def has_password?(submitted_password)
-	 #   encrypted_password == encrypt(submitted_password)
-	#end
+  def self.send_reset_password_instructions(attributes={})
+	recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+	recoverable.send_reset_password_instructions if recoverable.persisted?
+	recoverable
+  end
 
-#	def self.authenticate(email,submitted_password)
-#		artist = find_by_email(email)
-#		return nil if artist.nil?
-#		return artist if artist.has_password?(submitted_password)
-#	end
+  def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error=:invalid)
+	(case_insensitive_keys||[]).each{|k| attributes[k].try(:downcase!)}
 
-#	private
-#		def encrypt_password
-#	self.salt = make_salt if new_record?
-#			self.encypted_password = encrypt(password)
-#		end
+	attributes = attributes.slice(*required_attributes)
+	attributes.delete_if{ |key,value| value.blank? }
 
-#		def encrypt(string)
-#			secure_hash("#{salt}--#{string}")
-#		end
-#
-#		def make_salt
-#			secure_hash("{Time.now.utc}--#{password}")
-#		end
-#
-#		def secure_hash(string)
-#			Digest::SHA2.hexdigest(string)
-#		end
-#end
-	#
-	#
-	#
-	#
+	if attributes.size == required_attributes.size
+		if attributes.has_key?(:login)
+			login = attributes.delete(:login)
+			record = find_record(login)
+		else
+			record = where(attributes).first
+		end
+	end
 
-	has_one :photo ,:dependent => :destroy #has one image for now 
-	attr_accessor  :password
-	attr_accessible :name,:email,:password,:password_confirmation
+	unless record
+		record = new
 
-
-	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :name,:presence=>true,
-	                :length =>{:maximum=>50}
-	validates  :email, :presence=>true,
-			   :format=>{:with=>email_regex},
-			   :uniqueness=>{:case_sensitive=>false}
-
-       validates :password,:presence=>true,
-	       		    :confirmation=>true,
-			    :length=>{:within=> 6..40}
-
-      before_save :encrypt_password
-     
-
-      def has_password?(submitted_password)
-	      #compare encrypted_password with the encrypted version of the
-	      #submitted password
-	      encrypted_password == encrypt(submitted_password)
-      end
-
-      def self.authenticate(email,submitted_password)
-              #returns nil if user does not exist
-	      #returns user if user password is same as submitted one    
-	      #implicity return nil if password is incorrect
-
-
-	      user  = find_by_email(email) #find user using email address
-
-	      return nil if user.nil?
-	      return user if user.has_password?(submitted_password)
-           
-      end
-
-      def self.authenticate_with_salt(id,cookie_salt)
-	     user = find_by_id(id)
-	     (user && user.salt == cookie_salt)? user :nil
-      end
-       private             
-       def encrypt_password
-
-	       self.salt = make_salt if new_record?
-	       self.encrypted_password = encrypt(password)
-       end
-
-       def encrypt(string)
-	      secure_hash("#{salt}--#{string}")
-       end
-
-       def make_salt
-	       secure_hash("#{Time.now.utc}--#{password}")
-       end
-
-       def secure_hash(string)
-	       Digest::SHA2.hexdigest(string)
-       end
+		required_attributes.each do |key|
+			value = attributes[key]
+			record.send("#{key}=", value)
+			record.errors.add(key, value.present? ? error : :blank)
+		end
+	end
+	record
+  end
+  
+  def self.find_record(login)
+	  where(["username = :value OR email = value", { :value => login }]).first
+  end
 end
