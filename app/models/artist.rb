@@ -12,7 +12,7 @@ class Artist < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :genre, :record_label, :artist_type, :website, :login
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :genre, :record_label, :artist_type, :website, :login,:bio,:location,:dob,:gender,:languages
   attr_accessor :rating, :login
 	
   has_one :photo, :dependent => :destroy
@@ -23,6 +23,9 @@ class Artist < ActiveRecord::Base
 	#	Micropost.where("user_id=?", id)
   #end
 
+   def track_feed
+      Track.where("artist_id=?",id)
+   end
   protected
   def self.find_for_database_authentication(warden_conditions)
 	conditions = warden_conditions.dup

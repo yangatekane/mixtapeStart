@@ -1,5 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 
+
+
+  <div id ="trackplayer">Loading player</div>
+
+
+  <script type="text/javascript">
+	  jwplayer("trackplayer").setup({
+			  'flashplayer':'/jwplayer/player.swf',
+			  'file':<%="\'/tracks/0000/000#{@track.id}/#{@track.filename}\'"%>,
+                            'controlbar' :'bottom',
+			    'width':'480',
+			    'height':'270'}
+			  );
+  </script>
+<div id="media">
+<div class="profile-picture">
+
+  <%=image_tag(picture(@track.artist))%>	
+  </div>
+  <div class ="info">
+	  <h4><%=@track.filename%></h4><br/>
+	  <h5><%=@track.artist.username%></h5><br/>
+
+	  <p>Uploaded :<%=@track.created_at %></p>
+
+  </div>
+
+
+
+  <%=@track.filename %>
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>
+</div>

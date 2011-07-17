@@ -1,7 +1,9 @@
 Musicbox::Application.routes.draw do
 
+  resources :tracks
+
   devise_for :artists
-  devise_for :artists, :controllers =>{:registrations => "registrations"}
+  devise_for :artists, :controllers =>{:registrations => "registrations",:sessions => :sessions}
 
   namespace :artist do 
 	  root :to => "artists#register"
@@ -23,7 +25,6 @@ Musicbox::Application.routes.draw do
 
   get "pages/about"
 
-  match 'editthem' ,:to =>'artists#edit'
 
  
 

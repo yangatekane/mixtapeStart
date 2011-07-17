@@ -4,6 +4,7 @@
 	<title><%=title%></title>
    <%= csrf_meta_tag %>
    <%=render 'layouts/stylesheet'%>
+   <%=javascript_include_tag "jwplayer" %>
 </head>
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
@@ -26,10 +27,9 @@
 			<nav>
  		 <ul>
 	  <li><%=link_to "Home", root_path%></li>
-	  <li><%=link_to "Top 100",'#'%></li>
-	  <li><%=link_to "Mixtapes",'#'%></li>
+	  <li><%=link_to "Ranking",'#'%></li>
+	  <li><%=link_to "Music",'#'%></li>
 	  <li><%=link_to "Videos",'#'%></li>
-	  <li><%=link_to "Lyrics",'#'%></li>
 	  <li><%=link_to "Artists",featured_path%></li>
    </ul>
    </nav>

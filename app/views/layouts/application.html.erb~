@@ -4,6 +4,7 @@
 	<title><%=title%></title>
    <%= csrf_meta_tag %>
    <%=render 'layouts/stylesheet'%>
+   <%=javascript_include_tag "jwplayer" %>
 </head>
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
@@ -14,7 +15,7 @@
 				<%if artist_signed_in? %>
                          
 					<li>Signed in as <%=current_artist.username %> <%=link_to "Sign out",destroy_artist_session_path %></li>
-					<li><%=link_to 'Profile','#' %></li>
+					<li><%=link_to 'Profile',artist_path(current_artist) %></li>
 
                   <%else%>
 

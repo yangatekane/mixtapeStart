@@ -5,36 +5,47 @@
 <%=form_for(@artist,:html =>{:multipart => true}) do |f| %> 
 
 	<p>
-	<%=f.label :UserName %>
+	<%=f.label :Name %> <br/>
 	<%=f.text_field :username %>
 
 	<p>
-	<%=f.label "Artist type " %>
+	<%=f.label "About You" %><br/>
+	 <%=f.text_area :bio %>
+	</p>
+	<p>
+	<%=f.label :location %><br/>
+	<%=f.text_field :location %>
+       </p>
+
+	<p>
+	<%=f.label "Artist type " %><br/>
 	<%=f.select(:artist_type,[['Commercial',1],['Independent',2],['Unsigned',3]])%>
 	</p>
 
 
 	<p>
 	</p>
-	<%=f.label :website %>
+	<%=f.label :website %><br/>
 	<%=f.text_field :website %>
 	</p>
 
 	<p>
-	<%=f.label :Genre %>
+	<%=f.label :Genre %><br/>
 	<%=f.text_field :genre %>
 	</p>
 
 	
 	<p>
-	<%=f.label "Record Label" %>
+	<%=f.label "Record Label" %><br/>
 	<%=f.text_field :record_label%>
 	</p>
 
-
-	<%= label_tag :Picture %>
+      <p>
+	<%= label_tag :Picture %><br/>
 	<%= file_field :attachable, :uploaded_data %>
+      </p> 
 
+        <p>	 
         <%=f.submit "Save" %>
 	</p>
 

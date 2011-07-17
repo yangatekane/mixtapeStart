@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110714130841) do
+ActiveRecord::Schema.define(:version => 20110717001417) do
 
   create_table "artists", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(:version => 20110714130841) do
     t.string   "website"
     t.string   "artist_type"
     t.string   "username"
+    t.text     "bio"
+    t.string   "location"
+    t.date     "dob"
+    t.string   "gender"
+    t.string   "languages"
   end
 
   add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true

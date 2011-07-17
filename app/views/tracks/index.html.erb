@@ -6,15 +6,35 @@
     <th></th>
     <th></th>
   </tr>
+  <%if artist_signed_in?  %>
+
+      <%if current_artist.tracks.empty? %>
+         There are currently no Tracks
+
+ <%else%>
+
+	  <% current_artist.tracks.each do |track| %>
+
+	  <tr>
+		  <td><%=link_to track.filename,track%></td>
+		  <td><%=link_to 'Edit',edit_track_path(track)%></td>
+                  <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
+	  </tr>
+  <%end%>
+  <%end%>
+
+   
+  <%else%>
+
 
 <% @tracks.each do |track| %>
 	<tr>
-		<td><%=track.filename%></td>
+   <td><%=track.filename%></td>
     <td><%= link_to 'Show', track %></td>
-    <td><%= link_to 'Edit', edit_track_path(track) %></td>
-    <td><%= link_to 'Destroy', track, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    
 <% end %>
+
+<%end%>
 </table>
 
 <br />

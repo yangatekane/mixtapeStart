@@ -35,6 +35,8 @@ nav{
 	float:right;
 }
 
+
+
 nav ul {
 	margin:0;
         padding:0;
@@ -123,5 +125,43 @@ footer ul li{
 	clip:rect(50px 218px 155px 82px);
 }
 
+.profile-picture {
+  float:left;
+   width:180;
+   height:158;
+   margin-right:10px;
+   margin-bottom:0px;
+   }
+ .info {
+	 float:left;
+	 margin-bottom:0px;
+ }
+#user_resources{
+	float:none;
+	margin-top:20px;
+        margin-left:15px;
+        margin-bottom:50px;        
+}
 
 
+
+#user_resources  ul {
+	float:left;
+	margin:0;
+        padding:0;
+
+}
+
+#user_resources ul li{
+	display:inline;
+        list-style:none;
+	margin-left:30px;
+}
+
+#trackplayer{
+  float:none;
+margin-left:15px;
+}
+ 
+
+      

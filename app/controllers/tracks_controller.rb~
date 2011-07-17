@@ -14,8 +14,8 @@ class TracksController < ApplicationController
   # GET /tracks/1.xml
   def show
     @track = Track.find(params[:id])
-
-    respond_to do |format|
+   
+      respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @track }
     end
@@ -41,7 +41,7 @@ class TracksController < ApplicationController
   # POST /tracks.xml
   def create
     @artist = current_artist
-    @track = @artist.tracks.build(params[:attachable])
+    @track = @artist.tracks.build(params[:track])
   #  @track = Track.new(params[:track])
 
     respond_to do |format|
