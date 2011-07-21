@@ -1,5 +1,23 @@
 <h1><%= @title %></h1>
 <% if artist_signed_in? %>
-	<h2><%= @title1 %></h2>
-	<p><%= link_to 'Add a comment', new_microposts_path %></p>
+
+
+
+
+
+	
 <% end %>
+
+
+
+  <div  id ="track"> Loading the player...</div>
+  <script type ="text/javascript">
+	  jwplayer("track").setup({
+           'flashplayer': 'jwplayer/player.swf',
+	   'file':'/tracks/0000/0001/13_Track_13.mp3',
+	   'controlbar':'bottom',
+	   'widht':'480',
+	   'height':'270'}	   
+       
+       );
+  </script>

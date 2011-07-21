@@ -80,33 +80,4 @@ footer ul li{
 	margin:0px auto auto auto;
 }
 
-#left_nav{
-	float:left;
-	margin:0;
-        padding:0;
-	position:absolute;
-	left:5px;
-	top:32px;
-}
-
-
-		
-#left_nav li{
-	display:inline;
-	margin-left:12px;
-
-}
-#left_nav li a{
-	text-decoration:none;
-	color:#716d6a;
-	font-family:Verdana,Arial,Heveltica,sans-serif;
-	font-size:10px;
-	font-weight:bold;
-	text-transform:uppercase;
-}
-
-#left_nav li a.active,a:hover{
-	color:#FFF;
-	text-decoration:underline;
-}
 

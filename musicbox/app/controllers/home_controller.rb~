@@ -1,10 +1,13 @@
 class HomeController < ApplicationController
-  
+
+  def new
+	@micropost = Micropost.new
+  end	  
   def index
     @title = "Home"
-    if artist_signed_in?
-	@micropost = Micropost.new
-    end
+    @posts = Micropost.all
+    @feed_items = @posts.paginate(:page => params[:page])
+    @artist = Artist.all
   end
 
   def about

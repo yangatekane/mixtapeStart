@@ -1,9 +1,6 @@
 <tr>
 	<td class="micropost">
-		<span class="content"><%= @comments %></span>
-		<span class="timestamp">
-			Posted <%= time_ago_in_words(@time) %> ago.
-		</span>
+		<%= render 'shared/feed' %>
 	</td>
 </tr>
 

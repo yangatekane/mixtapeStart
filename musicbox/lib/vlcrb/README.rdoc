@@ -1,0 +1,44 @@
+= vlcrb
+
+Ruby wrapper for libVLC.
+
+== Install 
+
+  rake install
+
+== Usage
+
+  # example from http://wiki.videolan.org/LibVLC_Tutorial
+  # run it like
+  # $ ruby -Ilib examples\libvlc_tutorial.rb [requires 1.9.x]
+  # if on windows, first add libvlc.dll location to your path, like
+  # set PATH=c:\Program Files (x86)\VideoLAN\VLC;%PATH%
+  require 'vlcrb'
+
+  inst = VLC::LibVLC.libvlc_new(0, nil)
+  m = VLC::Media.libvlc_media_new_location(inst, "examples/1.flv") 
+  mp = VLC::Media::Player.libvlc_media_player_new_from_media(m)
+  VLC::Media::Player.libvlc_media_player_play(mp)
+    
+  sleep(10)
+    
+  VLC::Media::Player.libvlc_media_player_stop(mp)
+  VLC::Media::Player.libvlc_media_player_release(mp)
+  VLC::LibVLC.libvlc_release(inst)
+
+
+== Contributing to vlcrb
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 nashby. See LICENSE.txt for
+further details.
+

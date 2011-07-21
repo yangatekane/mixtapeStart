@@ -8,15 +8,6 @@ gem 'rails', '3.0.6'
 gem 'sqlite3'
 gem 'paperclip'
 gem 'will_paginate','3.0.pre2'
-#gem 'ambethia-recaptcha',:lib => 'recaptcha/rails'
-gem "devise", "~> 1.3.4"
-gem "warden", "~> 1.0.4"
-gem "orm_adapter", "~> 0.0.5"
-gem "bcrypt-ruby", "~> 2.1.4"
-#gem "image_science", "~> 1.2.1"
-gem "hoe", "~> 2.9.4"
-gem "minitest", "~> 2.2.2"
-#gem "recaptcha", :require => "recaptcha/rails"
 # Use unicorn as the web server
 # gem 'unicorn'
 

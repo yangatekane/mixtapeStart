@@ -4,6 +4,7 @@
 	<title><%=title%></title>
    <%= csrf_meta_tag %>
    <%=render 'layouts/stylesheet'%>
+   <%=javascript_include_tag "jwplayer" %>
 </head>
 <body>
 	<div id ="main"><!--BEGIN MAIN -->
@@ -11,22 +12,25 @@
 			<header>
    
 			<ul id="left_nav">
-				<% if artist_signed_in? %>
-					<li>Signed in as <%= current_artist.username %> <%= link_to "Sign out", destroy_artist_session_path %></li>
-				<% else %>
-					<li><%= link_to "Register", new_artist_registration_path %></li>
-					<li><%= link_to "Login", new_artist_session_path %></li>
-				<% end %>
+				<%if artist_signed_in? %>
+                         
+					<li>Signed in as <%=current_artist.username %> <%=link_to "Sign out",destroy_artist_session_path %></li>
+					<li><%=link_to 'Profile',artist_path(current_artist) %></li>
+
+                  <%else%>
+
+				<li><%=link_to "Register",new_artist_registration_path%></li>
+				<li><%=link_to "Login",new_artist_session_path%></li>
+			<%end%>
  			</ul>
 			
 			<nav>
  		 <ul>
 	  <li><%=link_to "Home", root_path%></li>
-	  <li><%=link_to "Top 100",'#'%></li>
-	  <li><%=link_to "Mixtapes",'#'%></li>
-	  <li><%=link_to "Videos",'#'%></li>
-	  <li><%=link_to "Lyrics",'#'%></li>
-	  <li><%=link_to "Artists",featured_path%></li>
+	  <!--  <li><%=link_to "Ranking",'#'%></li> -->
+	  <li><%=link_to "Music",tracks_path%></li>
+	  <!---	  <li><%=link_to "Videos",'#'%></li> -->
+	  <li><%=link_to "Members",featured_path%></li>
    </ul>
    </nav>
    </header>
@@ -54,4 +58,3 @@
     </footer>
 </body>
 </html>
-

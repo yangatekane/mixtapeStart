@@ -1,9 +1,9 @@
-<td>
-	<li class="photo">
-		<%=image_tag(picture(current_artist))%>|<%=current_artist.username %> 
-	</li>
-	<li>
-		<span class="content"><%= feed_item.content %></span>
-		<span class="timestamp">posted <%= time_ago_in_words(feed_item.created_at) %> ago. </span>
-		</li>
-</td>
+
+<%feed_id = feed_item.artist_id %>
+
+<%=image_tag(picture(@artists[feed_id]),:size =>'96x96')%> <%=@artists[feed_id].username %> <br/>
+<ul>
+<li><%=feed_item.content %></li>
+<li>Posted <%=time_ago_in_words(feed_item.created_at) %> ago</li> 
+</ul>
+

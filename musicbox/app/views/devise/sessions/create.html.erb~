@@ -1,11 +1,2 @@
-<h1>Arist Profile </h1>
-<tr>
-	<td class="main">
-		<% unless @artist.microposts.empty? %>
-			<table class="microposts" summary="Artist microposts">
-				<%= render @microposts %>
-			</table>
-			<%= will_paginate @microposts %>
-		<% end %>
-	</td>
-</tr>
+<%=render current_artist %>
+

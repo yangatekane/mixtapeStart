@@ -1,32 +1,20 @@
 Musicbox::Application.routes.draw do
 
-  devise_for :artists
-  devise_for :artists, :controllers =>{:registrations => "registrations"}
-
-  namespace :artist do 
-	  root :to => "artists#register"
-	  end
-
-
-
- resources :artists, :only =>[:index,:show, :edit, :destroy, :update]
- match '/featured' ,:to =>'artists#index'
- match '/about', :to => 'home#about'
- match '/contact', :to =>'home#contact'
-
- resource :microposts
-  
-  
-
-
-  get "pages/home"
-
-  get "pages/about"
-
-
+ resources :tracks
  
+ devise_for :artists
+ devise_for :artists, :controller =>{:registrations => "registrations"}
 
-  
+ namespace :artist do
+ 	root :to => "artists#register"
+ 	end
+ 	
+ resources :artists, :only => [:index, :show, :edit, :distroy, :update]
+ match '/featured' ,:to => 'artists#index'
+ match '/about', :to=> 'home#about'
+ match '/contact',:to=> 'home#contact'
+ 
+ resources :microposts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
