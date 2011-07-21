@@ -5,6 +5,21 @@
 
   <div id ="trackplayer">Loading player</div>
 
+<div id="media">
+<div class="profile-picture">
+
+  <%=image_tag(picture(@track.artist))%>	
+ </div>
+ <div>
+	 <h2> <%=@track.filename %><br/><h2>
+   	 <h3><%=@track.artist.username %></h3>
+ </div> 
+
+
+
+</div>
+
+
 
   <script type="text/javascript">
 	  jwplayer("trackplayer").setup({
@@ -12,27 +27,24 @@
 			  'file':<%="\'/tracks/0000/000#{@track.id}/#{@track.filename}\'"%>,
                             'controlbar' :'bottom',
 			    'width':'480',
-			    'height':'270'}
+			    'height':'100'}
 			  );
-  </script>
-<div id="media">
-<div class="profile-picture">
+		  </script>
+<div class="comment">
+	<% if artist_signed_in? %>
+		<%= form_for (@micropost) do |f| %>
+			<div class="field">
+				<%= f.text_area :content, :size => '15x8' %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Comment" %>
+			</div>
+		<% end %>
+		<table>
+	<td class="micropost">
+		<%= render 'shared/feed' %>
+	</td>
+</table>
+<% end %>
 
-  <%=image_tag(picture(@track.artist))%>	
-  </div>
-  <div class ="info">
-	  <h4><%=@track.filename%></h4><br/>
-	  <h5><%=@track.artist.username%></h5><br/>
-
-	  <p>Uploaded :<%=@track.created_at %></p>
-
-  </div>
-
-
-
-  <%=@track.filename %>
-  <%if artist_signed_in? %>
-	  <%= link_to 'Edit', edit_track_path(@track) %>
-	 <%end %> |
-<%= link_to 'Back', tracks_path %>
 </div>

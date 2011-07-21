@@ -67,6 +67,7 @@ footer{
 	background:url(images/footer_slice.gif) repeat-x;
         height:60px;
 	text-align:center;
+	clear:both;
 
 }
 
@@ -128,19 +129,21 @@ footer ul li{
 .profile-picture {
   float:left;
    width:180;
-   height:158;
+   height:180;
    margin-right:10px;
    margin-bottom:0px;
    }
  .info {
 	 float:left;
 	 margin-bottom:0px;
+	 margin-top:0px;
  }
 #user_resources{
 	float:none;
 	margin-top:20px;
         margin-left:15px;
-        margin-bottom:50px;        
+        margin-bottom:50px;  
+
 }
 
 
@@ -149,6 +152,7 @@ footer ul li{
 	float:left;
 	margin:0;
         padding:0;
+	margin-left:30px;
 
 }
 
@@ -158,12 +162,24 @@ footer ul li{
 	margin-left:30px;
 }
 
-#trackplayer{
-  float:none;
-  margin-top:20px;
-margin-left:15px;
-margin-bottom:50px;
+#trackplayer {
+ 
+
 }
+
+.comment  table ul li {
+	list-style:none;
+}
+
+form.new_micropost {
+	margin-bottom: 2em;
+}
+
+form.new_micropost textarea {
+	height: 3em;
+	margin-bottom: 0;
+}
+	
  
 
       

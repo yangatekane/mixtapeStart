@@ -14,8 +14,13 @@ class TracksController < ApplicationController
   # GET /tracks/1.xml
   def show
     @track = Track.find(params[:id])
-   
-      respond_to do |format|
+    @micropost = Micropost.new
+    @artists = Artist.all
+    @posts = Micropost.all
+    @feed_items = @posts.paginate(:page => params[:page])
+    current_track_id(@track)
+    @filename ="\'tracks/0000/000#{@track.id}/#{@track.filename}\'"
+    respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @track }
     end

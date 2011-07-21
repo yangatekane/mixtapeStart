@@ -13,7 +13,7 @@
 
 
    <%=f.label :Track %><br/>
-   <%=file_field :uploaded_data %><br/>
+   <%=f.file_field :uploaded_data %><br/>
   </p>
   <div class="actions">
     <%= f.submit "Upload Track" %>
