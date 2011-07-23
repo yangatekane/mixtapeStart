@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<audio src =<%= "/tracks/0000/000#{@track.id}/#{@track.filename}"%>  autoplay ="autoplay" controls ="controls">
+<audio src =<%= "/tracks/#{@track.filename}"%>  autoplay ="autoplay" controls ="controls">
 	
 Your broswer does not have HTML 5 support
 </audio>
@@ -14,7 +14,7 @@ Your broswer does not have HTML 5 support
   <%=image_tag(picture(@track.artist))%>	
  </div>
  <div>
-	 <h2> <%=@track.filename %><br/><h2>
+	 <h2> <%=@track.name %><br/><h2>
    	 <h3><%=@track.artist.username %></h3>
  </div> 
 
@@ -22,7 +22,7 @@ Your broswer does not have HTML 5 support
 
 </div>
 
-
+<!---
 <div class="comment">
 	<% if artist_signed_in? %>
 		<%= form_for (@micropost) do |f| %>
@@ -39,5 +39,5 @@ Your broswer does not have HTML 5 support
 	</td>
 </table>
 <% end %>
-
+--> 
 </div>

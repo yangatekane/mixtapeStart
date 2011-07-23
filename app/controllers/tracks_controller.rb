@@ -19,7 +19,7 @@ class TracksController < ApplicationController
     @posts = Micropost.all
     @feed_items = @posts.paginate(:page => params[:page])
     
-    @filename ="\'tracks/0000/000#{@track.id}/#{@track.filename}\'"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @track }

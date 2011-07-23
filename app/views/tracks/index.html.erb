@@ -11,7 +11,7 @@
 	  <% current_artist.tracks.each do |track| %>
 
 	  <tr>
-		  <td><%=link_to track.filename,track%></td>
+		  <td><%=link_to track.name,track%></td>
 		  <td><%=link_to 'Edit',edit_track_path(track)%></td>
 		
                   <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
@@ -30,9 +30,9 @@
 		
 		
 		<div class ="element-preview">
-		<%= link_to (image_tag("/photos/noimage.png" ,:size =>'96x96'), track )%>
+		<%= link_to (image_tag(picture(track.artist),:size =>'96x96'), track )%>
 		 <div class ="meta">
-		 	<%=link_to (track.filename, track ) %><br/>
+		 	<%=link_to (track.name, track ) %><br/>
 		 	Uploaded:
 		 	</div>
 		
