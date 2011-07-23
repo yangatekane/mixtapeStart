@@ -1,9 +1,20 @@
-<h1>Featured Artists</h1>
+<h1>Members </h1>
 <%=will_paginate %>
-<ul >
+<div class ="listing">
 	
+
 	<%@artists.each do |artist| %>
-		<%=render artist %>
-	<%end%>
-</ul>
-<%=will_paginate %>
+		 	<div class ="element-preview">
+   <%= link_to (image_tag(picture(artist) ,:size =>'96x96'), artist )%>
+   <div class ="meta">
+   <%= link_to artist.username , artist %><br/>
+    Member Since:
+    
+   
+   </div>
+   </div>
+		<%end%>
+	
+</div>
+	<%=will_paginate %>
+

@@ -1,18 +1,13 @@
 <h1>Listing tracks</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <%if artist_signed_in?  %>
 
-      <%if current_artist.tracks.empty? %>
+  <%if artist_signed_in?  then %>
+
+      <%if current_artist.tracks.empty? then  %>
          There are currently no Tracks
 
  <%else%>
-
+  <table>
 	  <% current_artist.tracks.each do |track| %>
 
 	  <tr>
@@ -21,21 +16,35 @@
 		
                   <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
 	  </tr>
+	  </table>
   <%end%>
+  
   <%end%>
 
    
   <%else%>
 
-
+	<div class ="listing">
 <% @tracks.each do |track| %>
-	<tr>
-		<td><%=image_tag("/photos/noimage.png",:size =>'96x96')%>'<%=track.filename%></td>
-    		<td><%= link_to 'Play', track %></td>
-	</tr>
+
+		
+		
+		<div class ="element-preview">
+		<%= link_to (image_tag("/photos/noimage.png" ,:size =>'96x96'), track )%>
+		 <div class ="meta">
+		 	<%=link_to (track.filename, track ) %><br/>
+		 	Uploaded:
+		 	</div>
+		
+		</div >
+		
+
+	
 <% end %>
+
+	</div>
 <%end%>
-</table>
+
 
 <br />
 
