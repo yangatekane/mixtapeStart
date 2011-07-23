@@ -18,6 +18,7 @@
 	  <tr>
 		  <td><%=link_to track.filename,track%></td>
 		  <td><%=link_to 'Edit',edit_track_path(track)%></td>
+		
                   <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
 	  </tr>
   <%end%>
