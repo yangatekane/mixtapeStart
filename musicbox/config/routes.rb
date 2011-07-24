@@ -3,14 +3,16 @@ Musicbox::Application.routes.draw do
  resources :tracks
  
  devise_for :artists
- devise_for :artists, :controller =>{:registrations => "registrations"}
+ devise_for :artists, :controller =>{:registrations => "registrations", :sessions => "sessions"}
 
  namespace :artist do
- 	root :to => "artists#register"
- 	end
+ 	root :to => "artists#show"
+ 	#'/sign_in' ,:to => "artists#show"
+ end
  	
  resources :artists, :only => [:index, :show, :edit, :distroy, :update]
  match '/featured' ,:to => 'artists#index'
+ match '/member' ,:to => 'artists#member'
  match '/about', :to=> 'home#about'
  match '/contact',:to=> 'home#contact'
  

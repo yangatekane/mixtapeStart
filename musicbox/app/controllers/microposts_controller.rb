@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
 	
 		
 		if @micropost.save
-			redirect_to  track_path(5)
+			redirect_to  track_path(current_track.id)
 		else
 			@feed_items = []
 			render :new

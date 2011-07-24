@@ -1,10 +1,12 @@
 <li>
 <div class= "clipwrapper">
 	<div class="clip">
-		<%=image_tag(picture(artist))%>
+		<%=link_to image_tag(picture(artist), :size => '180x180'),artist_path(artist.id)%>
 	</div>
            
-	<div class= "clipwrapper">
+	<div class= "public_info">
 	  |<%=artist.username %>
+	 </div>
+</div>
 </li>
 

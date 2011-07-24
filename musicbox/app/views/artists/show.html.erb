@@ -18,16 +18,15 @@
         Genre :	<%=@artist.genre%><br/>
 	Record Label: <%=@artist.record_label %><br/>
 	HomePage:<%=@artist.website %><br/>
-	</p>
-	<% if artist_signed_in? %>
-		<%=link_to 'Edit Profile',edit_artist_path(@artist) %>
-	
-	<%end%>
-	
+	</p>	
 </div>
 
 <div id="user_resources">
 	<ul>
+		<% if artist_signed_in? %>
+			<%=link_to 'Edit Profile',edit_artist_path(@artist) %>
+	
+		<%end%>
 		<li><%=link_to 'Tracks' ,tracks_path%></li>
 		<li><%=link_to 'Mixtapes','#'%></li>
 		<li><%=link_to'Albums','#'%></li>

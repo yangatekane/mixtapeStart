@@ -18,7 +18,7 @@ class TracksController < ApplicationController
     @artists = Artist.all
     @posts = Micropost.all
     @feed_items = @posts.paginate(:page => params[:page])
-    
+    track_session(@track)
     @filename ="\'tracks/0000/000#{@track.id}/#{@track.filename}\'"
     respond_to do |format|
       format.html # show.html.erb

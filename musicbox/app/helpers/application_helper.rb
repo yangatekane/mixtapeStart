@@ -29,5 +29,10 @@ module ApplicationHelper
 	 new_image=original_img.crop(23,81,107,139)
 	  return new_image
    end
+   
+   def track_session(track)
+   		@current_track = track	
+   end
+   
 
 end
