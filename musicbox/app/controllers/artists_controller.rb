@@ -8,6 +8,7 @@ class ArtistsController < ApplicationController
   end
 
  def show
+ 	@artist = current_artist
  	 current_member = Artist.find(params[:id])
 	 if (current_member.id == 0)
  		@artist = current_artist
