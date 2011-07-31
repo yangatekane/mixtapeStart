@@ -1,0 +1,5 @@
+module TracksHelper
+	def current_track
+		return Track.find(params[:id])
+	end
+end

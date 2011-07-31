@@ -6,4 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+<<<<<<< HEAD:musicbox/db/seeds.rb~
  Artist.delet_all
+=======
+Track.delete_all
+>>>>>>> 34fe9560de9af481b3b74905fe26bfb21863becc:db/seeds.rb
