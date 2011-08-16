@@ -1,0 +1,49 @@
+<%if artist_signed_in?%> 
+
+      <%if current_artist.tracks.empty? then  %>
+         There are currently no Tracks
+
+ <%else%>
+	 <table>
+		 <tr>
+			 <td></td>
+			 <td></td>
+			 <td></td>
+		 </tr> 
+ 
+
+ 	<% current_artist.tracks.each do |track| %>
+		<tr>	
+			<td>  <%=link_to track.name,track%></td>
+			<td>	<%=link_to 'Edit',edit_track_path(track)%></td>
+			<td>	<%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
+      </tr>
+  <%end%>
+</table>
+ 
+  
+  <%end%>
+<%else%>
+<%if @artist.tracks.empty?%>
+	There are currently no Tracks..
+	<%else%>
+	 <table>
+		 <tr>
+			 <td></td>
+			 <td></td>
+			 <td></td>
+		 </tr> 
+ 
+
+ 	<% @artist.tracks.each do |track| %>
+		<tr>	
+			<td>  <%=link_to track.name,track%></td>
+			
+      </tr>
+  <%end%>
+</table>
+<%end%>
+<%end%>
+  <%if artist_signed_in?%>
+   <%=link_to("New Track",new_track_path)%> 
+  <%end%>

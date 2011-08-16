@@ -1,5 +1,9 @@
 Musicbox::Application.routes.draw do
 
+  get "artist_collection/index"
+
+
+ resources :arist_colections
   resources :tracks
 
   devise_for :artists
@@ -19,6 +23,7 @@ Musicbox::Application.routes.draw do
  resource :microposts
   
   
+ match '/personal_tracks', :to =>'tracks#personal_tracks'
 
 
   get "pages/home"

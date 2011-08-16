@@ -6,38 +6,8 @@
 Your broswer does not have HTML 5 support
 </audio>
 
- 
-
-<div id="media">
-<div class="profile-picture">
-
-  <%=image_tag(picture(@track.artist))%>	
- </div>
- <div>
-	 <h2> <%=@track.name %><br/><h2>
-   	 <h3><%=@track.artist.username %></h3>
- </div> 
+<p><strong><%=@track.name%></strong> Posted by<%= link_to(@track.artist.username,@track.artist) %></p>
 
 
 
-</div>
 
-<!---
-<div class="comment">
-	<% if artist_signed_in? %>
-		<%= form_for (@micropost) do |f| %>
-			<div class="field">
-				<%= f.text_area :content, :size => '15x8' %>
-			</div>
-			<div class="actions">
-				<%= f.submit "Comment" %>
-			</div>
-		<% end %>
-		<table>
-	<td class="micropost">
-		<%= render 'shared/feed' %>
-	</td>
-</table>
-<% end %>
---> 
-</div>

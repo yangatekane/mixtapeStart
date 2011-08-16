@@ -87,4 +87,9 @@ class TracksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+ def personal_tracks 
+ 	@artist = Artist.find(params[:id])
+ 	end
 end
