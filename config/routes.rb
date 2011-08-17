@@ -1,7 +1,15 @@
 Musicbox::Application.routes.draw do
 
-  get "artist_collection/index"
+  get "comment/new"
 
+  get "comment/create"
+
+  get "comment/show"
+
+  get "comment/index"
+
+  
+  match "/comment",:to => "tracks#create_comment"
 
  resources :arist_colections
   resources :tracks

@@ -204,5 +204,17 @@ form.new_micropost textarea {
 	margin-left:0px;
 
 }
+#comments{
+	  width:600px;
+	  margin-bottom:2px;
+	  border:2px solid blue;
+	  
+}
+#comment{
+	
+	width:600px;
+	height:100px;
+}
 
-      
+
+

@@ -7,9 +7,5 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 
-
-
-Track.delete_all
-Photo.delete_all
-Artist.delete_all
+Comment.delete_all
 

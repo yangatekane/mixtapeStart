@@ -14,10 +14,11 @@ class TracksController < ApplicationController
   # GET /tracks/1.xml
   def show
     @track = Track.find(params[:id])
-    @micropost = Micropost.new
+   
     @artists = Artist.all
-    @posts = Micropost.all
-    @feed_items = @posts.paginate(:page => params[:page])
+
+    @comments = @track.comments.all
+    
     
 
     respond_to do |format|
@@ -92,4 +93,17 @@ class TracksController < ApplicationController
  def personal_tracks 
  	@artist = Artist.find(params[:id])
  	end
+ 	
+ 	def create_comment
+ 		@track = Track.find(params[:id])
+ 		
+  if @track.comments.create(:comment =>params[:comment],:artist_id =>current_artist.id)
+ 	   render 'show'	
+ 		else
+ 			#must do something when cant create comment
+ end
+ 		
+ 		end
 end
+
+
