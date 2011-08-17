@@ -33,17 +33,13 @@ gem 'sqlite3'
 
 gem 'will_paginate', '3.0.pre2'
 
-
+gem "acts_as_commentable"
 
 
   
 gem "paperclip"
 gem "devise","~> 1.3.4"
-gem "warden","~> 1.0.4"
-gem "orm_adapter","~>0.0.5"
-gem "bcrypt-ruby","~> 2.1.4"
-gem "hoe", "~> 2.9.4"
-gem "minitest","~> 2.2.2"
+
 
 group :development do
  gem 'rspec-rails', '2.0.0'
