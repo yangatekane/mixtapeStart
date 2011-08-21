@@ -17,7 +17,7 @@ class TracksController < ApplicationController
    
     @artists = Artist.all
 
-    @comments = @track.comments.all
+   	@comments = @track.comments.paginate(:page =>params[:page])
     
     
 
@@ -97,13 +97,26 @@ class TracksController < ApplicationController
  	def create_comment
  		@track = Track.find(params[:id])
  		
+ 		
   if @track.comments.create(:comment =>params[:comment],:artist_id =>current_artist.id)
+       
+  	   @comments = @track.comments.paginate(:page =>params[:page])
  	   render 'show'	
  		else
  			#must do something when cant create comment
  end
  		
  		end
+ 		
+ 		
+ def download
+ 	
+  send_file "#{RAILS_ROOT}/public/tracks/#{params[:track]}",:type =>'audio/mp3',:filename =>"www.mculobox.com.mp3"
+  #note must do something after sending the file:
+   #it does send the file but stops the song...
+ 
+end
+ 	
 end
 
 

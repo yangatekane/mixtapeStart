@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+	
+	before_filter :authenticate_artist!
   #Prepare data to show all artist on our database:
   def index
 	  @title = "Featured Artists"
@@ -11,7 +13,15 @@ class ArtistsController < ApplicationController
 
 
  def show
-	 @artist = Artist.find(params[:id])
+ 	#if artist_signed_in?
+ 	#	if id !=current_artist.id
+ 	#		@artist = Artist.find(params[:id])
+ 	#		else
+ 	#			@artist = current_artist
+ 	#	end
+ #	else
+ 	@artist = Artist.find(params[:id])
+ #end
 	 @title = @artist.username
 	 
  end

@@ -208,13 +208,37 @@ form.new_micropost textarea {
 	  width:600px;
 	  margin-bottom:2px;
 	  border:2px solid blue;
-	  
-}
-#comment{
-	
-	width:600px;
-	height:100px;
+	  float:left;
+	  margin-left:auto;
+	  margin-right:auto;
 }
 
+#comment{
+	
+	width:400px;
+	height:100px;
+}
+.thumbs{
+	border:2px solid red;
+	width:54px;
+	margin-left:2px;
+	margin-top:2px;
+    float:left;
+}
+
+#comment-text{
+	border:2px solid green;
+	width:500px;
+	
+	/*position:relative;
+	 left:65px;
+     top:-58px; */
+     margin-bottom :0px;
+	    float:left;
+}
+.pagination{
+	float:left;
+	
+}
 
 

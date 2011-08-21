@@ -10,16 +10,25 @@ Musicbox::Application.routes.draw do
 
   
   match "/comment",:to => "tracks#create_comment"
+  
+  match "/download",:to =>"tracks#download"
 
  resources :arist_colections
   resources :tracks
 
-  devise_for :artists
+  devise_for :artists do 
+  	match '/artist', :controller =>'artists',:action =>'show',:as => :artist_root
+  	
+  end
   devise_for :artists, :controllers =>{:registrations => "registrations"}
 
   namespace :artist do 
 	  root :to => "artists#register"
 	  end
+
+
+ #what happens after login:
+ #map.artist_root "/artists", :controller => "artists"
 
 
 
