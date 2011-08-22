@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
+  #before_filter :authenticate_artist!, :except => [:index, :edit, :update]
   #Prepare data to show all artist on our database:
+  
   def index
 	  @title = "Featured Artists"
       #	  @artists =Artist.all   ,had to change this since using will_paginate
@@ -11,9 +13,15 @@ class ArtistsController < ApplicationController
 
 
  def show
-	 @artist = Artist.find(params[:id])
-	 @title = @artist.username
-	 
+ 	if artist_signed_in?	
+ 				@artist =  current_artist 
+ 				unless params[:id].blank?
+ 					@artist =  Artist.find(params[:id])
+ 				end
+ 	else
+		 @artist = Artist.find(params[:id])
+	end
+	 @title = @artist.username	 
  end
 
  
@@ -21,9 +29,6 @@ class ArtistsController < ApplicationController
   def edit
 	  @artist = Artist.find(params[:id])
 	  @title = "Edit User"
-          
-
-
   end
 
   def update

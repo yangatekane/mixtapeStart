@@ -19,10 +19,6 @@ class Artist < ActiveRecord::Base
   has_many :microposts, :dependent => :destroy
   has_many :tracks
 
-  #def feed
-	#	Micropost.where("user_id=?", id)
-  #end
-
    def track_feed
       Track.where("artist_id=?",id)
    end
