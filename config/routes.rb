@@ -1,14 +1,5 @@
 Musicbox::Application.routes.draw do
 
-  resources :tracks
-<<<<<<< HEAD
- 
-  devise_for :artists do 
-  		match '/artist', :controller => 'artists',:action => 'show', :as => :artist_root	
-=======
-
-  devise_for :artists
-
   get "comment/new"
 
   get "comment/create"
@@ -21,29 +12,19 @@ Musicbox::Application.routes.draw do
   match "/comment",:to => "tracks#create_comment"
   
   match "/download",:to =>"tracks#download"
-
- resources :arist_colections
   resources :tracks
 
   devise_for :artists do 
   	match '/artist', :controller =>'artists',:action =>'show',:as => :artist_root
->>>>>>> lindagcaba-master
   end
   devise_for :artists, :controllers =>{:registrations => "registrations"}
 
   namespace :artist do 
 	  root :to => "artists#register"
   end
-<<<<<<< HEAD
-  
-
-
-
-=======
->>>>>>> lindagcaba-master
 
  resources :artists, :only =>[:index,:show, :edit, :destroy, :update]
-
+ match '/featured', :to => 'artists#index'
  match '/about', :to => 'home#about'
  match '/contact', :to =>'home#contact'
 
