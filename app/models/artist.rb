@@ -22,10 +22,7 @@ class Artist < ActiveRecord::Base
   #def feed
 	#	Micropost.where("user_id=?", id)
   #end
-<<<<<<< HEAD
-=======
   
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
 
    def track_feed
       Track.where("artist_id=?",id)

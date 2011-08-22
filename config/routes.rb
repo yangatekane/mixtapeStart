@@ -1,10 +1,9 @@
 Musicbox::Application.routes.draw do
 
-<<<<<<< HEAD
   resources :tracks
 
   devise_for :artists
-=======
+
   get "comment/new"
 
   get "comment/create"
@@ -23,23 +22,12 @@ Musicbox::Application.routes.draw do
 
   devise_for :artists do 
   	match '/artist', :controller =>'artists',:action =>'show',:as => :artist_root
-  	
   end
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
   devise_for :artists, :controllers =>{:registrations => "registrations"}
 
   namespace :artist do 
 	  root :to => "artists#register"
-	  end
-
-
-<<<<<<< HEAD
-=======
- #what happens after login:
- #map.artist_root "/artists", :controller => "artists"
-
-
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
+  end
 
  resources :artists, :only =>[:index,:show, :edit, :destroy, :update]
  match '/featured' ,:to =>'artists#index'
@@ -47,12 +35,9 @@ Musicbox::Application.routes.draw do
  match '/contact', :to =>'home#contact'
 
  resource :microposts
-  
-  
-<<<<<<< HEAD
-=======
+ 
  match '/personal_tracks', :to =>'tracks#personal_tracks'
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
+
 
 
   get "pages/home"

@@ -14,18 +14,11 @@ class TracksController < ApplicationController
   # GET /tracks/1.xml
   def show
     @track = Track.find(params[:id])
-<<<<<<< HEAD
-    @micropost = Micropost.new
-    @artists = Artist.all
-    @posts = Micropost.all
-    @feed_items = @posts.paginate(:page => params[:page])
-=======
-   
+
     @artists = Artist.all
 
    	@comments = @track.comments.paginate(:page =>params[:page])
     
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
     
 
     respond_to do |format|
@@ -95,9 +88,7 @@ class TracksController < ApplicationController
       format.xml  { head :ok }
     end
   end
-<<<<<<< HEAD
-end
-=======
+
   
   
  def personal_tracks 
@@ -129,5 +120,3 @@ end
  	
 end
 
-
->>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
