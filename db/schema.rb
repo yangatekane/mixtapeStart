@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110723201152) do
+=======
+ActiveRecord::Schema.define(:version => 20110817034935) do
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
 
   create_table "artists", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -44,6 +48,23 @@ ActiveRecord::Schema.define(:version => 20110723201152) do
   add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true
   add_index "artists", ["reset_password_token"], :name => "index_artists_on_reset_password_token", :unique => true
 
+<<<<<<< HEAD
+=======
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["artist_id"], :name => "index_comments_on_artist_id"
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
   create_table "images", :force => true do |t|
     t.integer  "artist_id"
     t.integer  "parent_id"
@@ -57,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20110723201152) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "artist_id"
@@ -66,6 +88,8 @@ ActiveRecord::Schema.define(:version => 20110723201152) do
 
   add_index "microposts", ["artist_id"], :name => "index_microposts_on_artist_id"
 
+=======
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
   create_table "photos", :force => true do |t|
     t.integer  "artist_id"
     t.integer  "parent_id"

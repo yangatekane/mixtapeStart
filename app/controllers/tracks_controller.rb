@@ -14,10 +14,18 @@ class TracksController < ApplicationController
   # GET /tracks/1.xml
   def show
     @track = Track.find(params[:id])
+<<<<<<< HEAD
     @micropost = Micropost.new
     @artists = Artist.all
     @posts = Micropost.all
     @feed_items = @posts.paginate(:page => params[:page])
+=======
+   
+    @artists = Artist.all
+
+   	@comments = @track.comments.paginate(:page =>params[:page])
+    
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
     
 
     respond_to do |format|
@@ -87,4 +95,39 @@ class TracksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+<<<<<<< HEAD
 end
+=======
+  
+  
+ def personal_tracks 
+ 	@artist = Artist.find(params[:id])
+ 	end
+ 	
+ 	def create_comment
+ 		@track = Track.find(params[:id])
+ 		
+ 		
+  if @track.comments.create(:comment =>params[:comment],:artist_id =>current_artist.id)
+       
+  	   @comments = @track.comments.paginate(:page =>params[:page])
+ 	   render 'show'	
+ 		else
+ 			#must do something when cant create comment
+ end
+ 		
+ 		end
+ 		
+ 		
+ def download
+ 	
+  send_file "#{RAILS_ROOT}/public/tracks/#{params[:track]}",:type =>'audio/mp3',:filename =>"www.mculobox.com.mp3"
+  #note must do something after sending the file:
+   #it does send the file but stops the song...
+ 
+end
+ 	
+end
+
+
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162

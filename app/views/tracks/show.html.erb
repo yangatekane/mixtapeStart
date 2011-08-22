@@ -6,6 +6,7 @@
 Your broswer does not have HTML 5 support
 </audio>
 
+<<<<<<< HEAD
  
 
 <div id="media">
@@ -41,3 +42,41 @@ Your broswer does not have HTML 5 support
 <% end %>
 --> 
 </div>
+=======
+<p><strong><%=@track.name%></strong> Posted by<%= link_to(@track.artist.username,@track.artist) %><br/>
+	<%=link_to "Download",:controller =>"tracks",:action =>"download",:track => @track.filename%>
+</p>
+
+
+<%if artist_signed_in?%>
+    <%=form_tag({:controller => :tracks,:action =>:create_comment,:id=>@track.id},{:method => :post}) do |f|%>
+   <%=text_area_tag :comment%>
+   <%=submit_tag "Comment"%>
+<%end%>
+<%end%>
+   
+
+<p>Comments: </p>
+    <% unless  @comments.empty?%>
+     <%@comments.each do |c|%>
+     
+ <div id ="comments"> 
+ 
+    <div class ="thumbs"> 
+         <%=image_tag(picture(c.artist),:size =>"50x50")%>
+    </div>
+     <div id ="comment-text"> 
+    <strong><%=c.artist.username%></strong>(<%=time_ago_in_words(c.created_at)%> ago) :<br/>
+                  
+                	<%=c.comment%>
+             
+                </div>
+ </div> 
+	 
+	 
+	 
+        <%end%>
+          <%=will_paginate @comments ,:id =>@track.id%>
+
+    <%end%>
+>>>>>>> eb2b69e19f0aba86f85859414b8a6260d7286162
