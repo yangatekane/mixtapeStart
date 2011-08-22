@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_filter :authenticate_artist!
   #Prepare data to show all artist on our database:
   def index
 	  @title = "Featured Artists"
@@ -6,40 +7,33 @@ class ArtistsController < ApplicationController
 	  @artists = Artist.paginate(:page=>params[:page])
   end
 
-
-
- def new
-	 @artist = Artist.new
-	 @title = "Register"
- end
-
  def show
-	 @artist = Artist.find(params[:id])
-	 @title = @artist.name
+ 	@artist = current_artist
+ 	 current_member = Artist.find(params[:id])
+	 if (current_member.id == 0)
+ 		@artist = current_artist
+ 	 else
+ 	 	@artist = current_member
+ 	 end
  end
-
-  def create
-	  @artist = Artist.new(params[:artist])
-	  if @artist.save
-		  flash[:success]="Welcome to Music Box"
-		  redirect_to 'index'
-	  else
-		  @title="Register"
-		  render 'new'
-	  end
-  end
-
+ 
   def edit
 	  @artist = Artist.find(params[:id])
 	  @title = "Edit User"
-
-
-
   end
 
   def update
 	  @artist = Artist.find(params[:id])
+
+	  unless params[:attachable].blank?
+	  @photo = @artist.build_photo(params[:attachable])
+          @photo.save
+	  #what if there was a problem saving the image
+          end
+
+	  
 	  if @artist.update_attributes(params[:artist])
+		  flash[:success] ='Succesfully updated your profile'
 		  redirect_to @artist
 	  else
 		  @title = "Edit User"
@@ -50,6 +44,5 @@ class ArtistsController < ApplicationController
   def delete
   end
  
-
 
 end

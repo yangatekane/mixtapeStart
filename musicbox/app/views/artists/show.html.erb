@@ -1,1 +1,38 @@
-<%=image_tag @artist.avatar.url(:medium) %> <%=@artist.name%>
+
+<div id ="profile" >
+<div class ="profile-picture">
+	<%=image_tag(picture(@artist),:size =>'180x180')%>
+	
+</div>
+<div id ="info">
+	<h2><%=@artist.username %></h2>
+	<p>
+	<%if artist_signed_in?%>
+		About You:<%=@artist.bio %><br/>
+	<%else%>
+		About <%=@artist.username %>:<br/>
+		<%=@artist.bio %>
+	<%end%>
+	
+	Location:<%=@artist.location %><br/>
+        Genre :	<%=@artist.genre%><br/>
+	Record Label: <%=@artist.record_label %><br/>
+	HomePage:<%=@artist.website %><br/>
+	</p>	
+</div>
+
+<div id="user_resources">
+	<ul>
+		<% if artist_signed_in? %>
+			<%=link_to 'Edit Profile',edit_artist_path(@artist) %>
+	
+		<%end%>
+		<li><%=link_to 'Tracks' ,tracks_path%></li>
+		<li><%=link_to 'Mixtapes','#'%></li>
+		<li><%=link_to'Albums','#'%></li>
+		<li><%=link_to 'Events','#'%></li>
+		<li><%=link_to 'Blog','#'%></li>
+	</ul>
+</div>
+
+</div>

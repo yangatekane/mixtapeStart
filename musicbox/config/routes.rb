@@ -1,15 +1,22 @@
 Musicbox::Application.routes.draw do
 
- resources :artists
- resources :sessions, :only =>[:new,:creat,:destroy]
+ resources :tracks
+ 
+ devise_for :artists
+ devise_for :artists, :controller =>{:registrations => "registrations", :sessions => "sessions"}
 
-  get "pages/home"
-
-  get "pages/about"
-
-
-  match '/about', :to=> 'pages#about'
-  match '/contact',:to=> 'pages#contact'
+ namespace :artist do
+ 	root :to => "artists#show"
+ 	#'/sign_in' ,:to => "artists#show"
+ end
+ 	
+ resources :artists, :only => [:index, :show, :edit, :distroy, :update]
+ match '/featured' ,:to => 'artists#index'
+ match '/member' ,:to => 'artists#member'
+ match '/about', :to=> 'home#about'
+ match '/contact',:to=> 'home#contact'
+ 
+ resources :microposts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,7 +66,7 @@ Musicbox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => "pages#home"
+   root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

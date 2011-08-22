@@ -1,4 +1,10 @@
 <li>
+<div class= "clipwrapper">
+	<div class="clip">
+		<%=image_tag(picture(artist))%>|<%=artist.username %>
+	</div>
 
- <%=image_tag artist.avatar.url(:medium)%> |<%=link_to artist.name, '#' %>
+	<div class= "clipwrapper">
+	
 </li>
+

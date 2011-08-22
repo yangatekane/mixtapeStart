@@ -10,25 +10,67 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613221636) do
+ActiveRecord::Schema.define(:version => 20110723164649) do
 
   create_table "artists", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "genre"
-    t.string   "category"
-    t.string   "record_label"
-    t.string   "artist_type"
-    t.string   "website"
-    t.string   "rating"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "genre"
+    t.string   "record_label"
+    t.string   "website"
+    t.string   "artist_type"
+    t.string   "username"
+    t.text     "bio"
+    t.string   "location"
+    t.date     "dob"
+    t.string   "gender"
+    t.string   "languages"
   end
 
   add_index "artists", ["email"], :name => "index_artists_on_email", :unique => true
+  add_index "artists", ["reset_password_token"], :name => "index_artists_on_reset_password_token", :unique => true
+
+  create_table "microposts", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artist_id"
+    t.integer  "track_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer "artist_id"
+    t.integer "size"
+    t.integer "width"
+    t.integer "height"
+    t.string  "content_type"
+    t.string  "thumbnail"
+    t.string  "filename"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "size"
+    t.integer  "parent_id"
+    t.integer  "artist_id"
+    t.string   "content_type"
+    t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,0 +1,20 @@
+class HomeController < ApplicationController
+
+  def new
+	@micropost = Micropost.new
+  end	  
+  def index
+    @title = "Home"
+    @posts = Micropost.all
+    @feed_items = @posts.paginate(:page => params[:page])
+    @artist = Artist.all
+  end
+
+  def about
+     @title = "About"
+  end
+  def contact
+  @title = "Contact"
+  end
+
+end

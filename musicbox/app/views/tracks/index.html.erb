@@ -1,0 +1,43 @@
+<h1>Listing tracks</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%if artist_signed_in?  %>
+
+      <%if current_artist.tracks.empty? %>
+         There are currently no Tracks
+
+ <%else%>
+
+	  <% current_artist.tracks.each do |track| %>
+
+	  <tr>
+		  <td><%=link_to track.filename,track%></td>
+		  <td><%=link_to 'Edit',edit_track_path(track)%></td>
+                  <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
+	  </tr>
+  <%end%>
+  <%end%>
+
+   
+  <%else%>
+
+
+<% @tracks.each do |track| %>
+	<tr>
+		<td><%=image_tag("/photos/noimage.png",:size =>'96x96')%>'<%=track.filename%></td>
+    		<td><%= link_to 'Play', track %></td>
+	</tr>
+<% end %>
+<%end%>
+</table>
+
+<br />
+
+<%if artist_signed_in? %>
+	<%= link_to 'New Track', new_track_path %>
+<%end %>
