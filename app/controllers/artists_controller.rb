@@ -12,6 +12,11 @@ class ArtistsController < ApplicationController
 
 
  def show
+ 	#show is the action executed after login to redired the user to his profile
+ 	#to achieve such by calling the artist_signed_in devise function to check whether
+ 	#the user has logged in, if the he/she is logged in, he/she goes straight to the
+ 	#profile. At that time params[:id].blank? condition will be false, this will only
+ 	#be true once the members page has been accessed.
  	if artist_signed_in?
  		@artist = current_artist
  		unless params[:id].blank?
