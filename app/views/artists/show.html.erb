@@ -29,6 +29,7 @@
 <div id="user_resources">
 	<ul>
 		<li><%=link_to 'Tracks' ,tracks_path%></li>
+		<li><%=link_to 'Tracks' ,:controller =>"tracks",:action => "personal_tracks",:id =>@artist.id%></li>
 		<li><%=link_to 'Mixtapes','#'%></li>
 		<li><%=link_to'Albums','#'%></li>
 		<li><%=link_to 'Events','#'%></li>

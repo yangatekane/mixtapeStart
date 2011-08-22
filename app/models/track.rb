@@ -1,4 +1,6 @@
 class Track < ActiveRecord::Base
+	acts_as_commentable
+	
 	belongs_to :artist
     attr_accessible :name,:uploaded_data
 

@@ -1,39 +1,16 @@
 <h1>Listing tracks</h1>
 
 
-  <%if artist_signed_in?  then %>
-
-      <%if current_artist.tracks.empty? then  %>
-         There are currently no Tracks
-
- <%else%>
-  <table>
-	  <% current_artist.tracks.each do |track| %>
-
-	  <tr>
-		  <td><%=link_to track.name,track%></td>
-		  <td><%=link_to 'Edit',edit_track_path(track)%></td>
-		
-                  <td><%=link_to 'Delete',track,:confirm =>'Are you sure?',:method =>:delete %></td>
-	  </tr>
-	  </table>
-  <%end%>
-  
-  <%end%>
-
-   
-  <%else%>
-
 	<div class ="listing">
+		<%if @tracks.empty?%>
+		 There are currently no tracks on the system
+		<%end%>
 <% @tracks.each do |track| %>
-
-		
-		
 		<div class ="element-preview">
 		<%= link_to (image_tag(picture(track.artist),:size =>'96x96'), track )%>
 		 <div class ="meta">
-		 	<%=link_to (track.name, track ) %><br/>
-		 	Uploaded:
+		 	<%=link_to (track.name, track ) %> by <%=link_to (track.artist.username)%><br/>
+		 	Uploaded:<%=time_ago_in_words(track.created_at)%>
 		 	</div>
 		
 		</div >
@@ -41,13 +18,5 @@
 
 	
 <% end %>
-
 	</div>
-<%end%>
 
-
-<br />
-
-<%if artist_signed_in? %>
-	<%= link_to 'New Track', new_track_path %>
-<%end %>

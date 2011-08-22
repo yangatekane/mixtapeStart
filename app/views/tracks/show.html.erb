@@ -6,38 +6,40 @@
 Your broswer does not have HTML 5 support
 </audio>
 
+
+<p><strong><%=@track.name%></strong> Posted by<%= link_to(@track.artist.username,@track.artist) %><br/>
+	<%=link_to "Download",:controller =>"tracks",:action =>"download",:track => @track.filename%>
+</p>
+
+
+<%if artist_signed_in?%>
+    <%=form_tag({:controller => :tracks,:action =>:create_comment,:id=>@track.id},{:method => :post}) do |f|%>
+   <%=text_area_tag :comment%>
+   <%=submit_tag "Comment"%>
+<%end%>
+<%end%>
+   
+
+<p>Comments: </p>
+    <% unless  @comments.empty?%>
+     <%@comments.each do |c|%>
+     
+ <div id ="comments"> 
  
-
-<div id="media">
-<div class="profile-picture">
-
-  <%=image_tag(picture(@track.artist))%>	
- </div>
- <div>
-	 <h2> <%=@track.name %><br/><h2>
-   	 <h3><%=@track.artist.username %></h3>
+    <div class ="thumbs"> 
+         <%=image_tag(picture(c.artist),:size =>"50x50")%>
+    </div>
+     <div id ="comment-text"> 
+    <strong><%=c.artist.username%></strong>(<%=time_ago_in_words(c.created_at)%> ago) :<br/>
+                  
+                	<%=c.comment%>
+             
+                </div>
  </div> 
+	 
+	 
+	 
+        <%end%>
+          <%=will_paginate @comments ,:id =>@track.id%>
 
-
-
-</div>
-
-<!---
-<div class="comment">
-	<% if artist_signed_in? %>
-		<%= form_for (@micropost) do |f| %>
-			<div class="field">
-				<%= f.text_area :content, :size => '15x8' %>
-			</div>
-			<div class="actions">
-				<%= f.submit "Comment" %>
-			</div>
-		<% end %>
-		<table>
-	<td class="micropost">
-		<%= render 'shared/feed' %>
-	</td>
-</table>
-<% end %>
---> 
-</div>
+    <%end%>

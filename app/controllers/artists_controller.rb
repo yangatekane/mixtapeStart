@@ -1,5 +1,9 @@
 class ArtistsController < ApplicationController
+<<<<<<< HEAD
   #before_filter :authenticate_artist!, :except => [:index, :edit, :update]
+=======
+
+>>>>>>> lindagcaba-master
   #Prepare data to show all artist on our database:
   
   def index
@@ -13,6 +17,7 @@ class ArtistsController < ApplicationController
 
 
  def show
+<<<<<<< HEAD
  	if artist_signed_in?	
  				@artist =  current_artist 
  				unless params[:id].blank?
@@ -22,6 +27,19 @@ class ArtistsController < ApplicationController
 		 @artist = Artist.find(params[:id])
 	end
 	 @title = @artist.username	 
+=======
+ 	if artist_signed_in?
+ 		@artist = current_artist
+ 		unless params[:id].blank?
+ 			@artist = Artist.find(params[:id])
+ 		end
+ 				
+ 	else
+ 	@artist = Artist.find(params[:id])
+ end
+	 @title = @artist.username
+	 
+>>>>>>> lindagcaba-master
  end
 
  
