@@ -93,9 +93,9 @@ class TracksController < ApplicationController
   
  def personal_tracks 
  	@artist = Artist.find(params[:id])
- 	end
+ end
  	
- 	def create_comment
+ def create_comment
  		@track = Track.find(params[:id])
  		
  		
