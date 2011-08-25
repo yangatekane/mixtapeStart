@@ -13,7 +13,7 @@ Your broswer does not have HTML 5 support
 
 
 <%if artist_signed_in?%>
-    <%=form_tag({:controller => :tracks,:action =>:create_comment,:id=>@track.id},{:method => :post}) do |f|%>
+    <%=form_tag({:controller => :tracks,:action =>:create_comment,:id=>@track.id},{:method => :post} ) do |f|%>
    <%=text_area_tag :comment%>
    <%=submit_tag "Comment"%>
 <%end%>
@@ -27,7 +27,7 @@ Your broswer does not have HTML 5 support
  <div id ="comments"> 
  
     <div class ="thumbs"> 
-         <%=image_tag(picture(c.artist),:size =>"50x50")%>
+         <%=link_to (image_tag(picture(c.artist),:size =>"50x50")),:controller => "artists",:action => "show",:id => c.artist_id%>
     </div>
      <div id ="comment-text"> 
     <strong><%=c.artist.username%></strong>(<%=time_ago_in_words(c.created_at)%> ago) :<br/>
